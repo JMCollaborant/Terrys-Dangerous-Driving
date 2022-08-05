@@ -5,6 +5,9 @@ using System.Linq;
 namespace Sandbox;
 
 partial class Pawn : AnimatedEntity {
+
+	private Vector3 gravity = new Vector3( 0, 0, -10 );
+
 	/// <summary>
 	/// Called when the entity is first created 
 	/// </summary>
@@ -21,59 +24,59 @@ partial class Pawn : AnimatedEntity {
 		EnableShadowInFirstPerson = true;
 	}
 
+	private void UpdateCamera() {
+		float yaw = Input.Rotation.Yaw() / 10;
+
+		float cameraDistance = 75f;
+
+		Vector3 cameraPos = new Vector3( MathF.Cos( yaw ), MathF.Sin( yaw ), 0 ) * cameraDistance;
+
+		EyePosition = Position + cameraPos;
+		EyeRotation = ( Position - EyePosition ).EulerAngles.ToRotation();
+	}
+
 	/// <summary>
 	/// Called every tick, clientside and serverside.
 	/// </summary>
 	public override void Simulate( Client cl ) {
 		base.Simulate( cl );
 
-		Rotation = Input.Rotation;
-		EyeRotation = Rotation;
+		Velocity += gravity;
 
-		// build movement from the input values
+		if ( Input.Pressed( InputButton.Jump ) ) {
+			Velocity = Velocity.WithZ( 100f );
+		}
 
-		float upAmount = 0.0f;
-        if ( Input.Down( InputButton.Jump ) ) {
-			upAmount = 1;
-        }else if ( Input.Down( InputButton.Duck ) ) {
-			upAmount = -1;
-        }
 
-		var movement = new Vector3( Input.Forward, Input.Left, upAmount ).Normal;
+		float moveSpeed = 10f;
 
-		// rotate it to the direction we're facing
-		Velocity = Rotation * movement;
+		if ( Input.Down( InputButton.Forward ) ) {
+			Velocity += EyeRotation.Forward * 10f;
+		}
 
-		// apply some speed to it
-		Velocity *= Input.Down( InputButton.Run ) ? 1000 : 200;
-
-		// apply it to our position using MoveHelper, which handles collision
-		// detection and sliding across surfaces for us
 		MoveHelper helper = new MoveHelper( Position, Velocity );
-		helper.Trace = helper.Trace.Size( 16 );
-		if ( helper.TryMove( Time.Delta ) > 0 ) {
+		Vector3 hullSize = new Vector3( 16, 16, 32 );
+		helper.Trace = helper.Trace.Size( -hullSize, hullSize );
+
+		DebugOverlay.Box( Position + -hullSize, Position + hullSize );
+
+		float moveDistance = helper.TryMoveWithStep( Time.Delta, 10f );
+
+		if ( moveDistance > 0 ) {
+			if ( moveDistance > 1 ) {
+				Velocity -= gravity;
+			}
+
 			Position = helper.Position;
 		}
 
-		// If we're running serverside and Attack1 was just pressed, spawn a ragdoll
-		if ( IsServer && Input.Pressed( InputButton.PrimaryAttack ) ) {
-			var ragdoll = new ModelEntity();
-			ragdoll.SetModel( "models/citizen/citizen.vmdl" );
-			ragdoll.Position = EyePosition + EyeRotation.Forward * 40;
-			ragdoll.Rotation = Rotation.LookAt( Vector3.Random.Normal );
-			ragdoll.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
-			ragdoll.PhysicsGroup.Velocity = EyeRotation.Forward * 100;
-		}
+
+		UpdateCamera();
 	}
 
-	/// <summary>
-	/// Called every frame on the client
-	/// </summary>
 	public override void FrameSimulate( Client cl ) {
 		base.FrameSimulate( cl );
 
-		// Update rotation every frame, to keep things smooth
-		Rotation = Input.Rotation;
-		EyeRotation = Rotation;
+		UpdateCamera();
 	}
 }
