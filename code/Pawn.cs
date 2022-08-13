@@ -1,6 +1,7 @@
 ﻿using Sandbox;
 using System;
 using System.Linq;
+using static Sandbox.MiscExtensions;
 
 namespace Sandbox;
 
@@ -8,32 +9,21 @@ partial class Pawn : AnimatedEntity {
 
 	private Vector3 gravity = new Vector3( 0, 0, -10 );
 
+	private CameraController cameraController;
+
 	/// <summary>
 	/// Called when the entity is first created 
 	/// </summary>
 	public override void Spawn() {
 		base.Spawn();
 
-		//
-		// Use a watermelon model
-		//
-		SetModel( "models/sbox_props/watermelon/watermelon.vmdl" );
+		SetModel( "models/citizen_props/oldoven.vmdl" );
 
 		EnableDrawing = true;
-		EnableHideInFirstPerson = true;
-		EnableShadowInFirstPerson = true;
-	}
 
-	private void UpdateCamera() {
-		float yaw = Input.Rotation.Yaw() / 10;
-
-		float cameraDistance = 75f;
-
-		Vector3 cameraPos = new Vector3( MathF.Cos( yaw ), MathF.Sin( yaw ), 0 ) * cameraDistance;
-
-		EyePosition = Position + cameraPos;
-		EyeRotation = ( Position - EyePosition ).EulerAngles.ToRotation();
-	}
+		cameraController = Components.Create<CameraController>();
+		Components.Add( cameraController );
+    }
 
 	/// <summary>
 	/// Called every tick, clientside and serverside.
@@ -50,8 +40,12 @@ partial class Pawn : AnimatedEntity {
 
 		float moveSpeed = 10f;
 
-		if ( Input.Down( InputButton.Forward ) ) {
-			Velocity += EyeRotation.Forward * 10f;
+		Vector3 movementVector = new Vector3( Input.Forward, Input.Left, 0 ).Normal;
+		Vector3 movementAdjustedforCamera = movementVector * Input.Rotation.Normal;
+		Velocity += movementAdjustedforCamera * moveSpeed;
+
+        if ( movementVector.Length != 0 ) {
+			Rotation = Rotation.FromAxis( Vector3.Up, movementAdjustedforCamera.EulerAngles.yaw );
 		}
 
 		MoveHelper helper = new MoveHelper( Position, Velocity );
@@ -70,13 +64,10 @@ partial class Pawn : AnimatedEntity {
 			Position = helper.Position;
 		}
 
-
-		UpdateCamera();
+		Velocity *= 0.955f;
 	}
 
 	public override void FrameSimulate( Client cl ) {
 		base.FrameSimulate( cl );
-
-		UpdateCamera();
 	}
 }

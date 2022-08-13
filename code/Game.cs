@@ -18,8 +18,7 @@ namespace Sandbox;
 /// to use for spawned players.
 /// </summary>
 public partial class MyGame : Sandbox.Game {
-	public MyGame() {
-	}
+	public MyGame() {}
 
 	/// <summary>
 	/// A client has joined the server. Make them a pawn to play with
