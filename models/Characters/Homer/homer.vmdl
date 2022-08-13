@@ -14,12 +14,12 @@
 						remaps = 
 						[
 							{
-								from = "eyeball_m.vmat"
-								to = "materials/eyeball.bmp.0.vmat"
-							},
-							{
 								from = "char_swatches_lit_m.vmat"
 								to = "materials/char_swatches_lit.vmat"
+							},
+							{
+								from = "eyeball_m.vmat"
+								to = "materials/eyeball.bmp.0.vmat"
 							},
 						]
 						use_global_default = false
@@ -33,7 +33,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "Models/Characters/Homer/Homer_TPose.fbx"
+						filename = "models/Characters/Homer/Homer.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 1.0
@@ -46,19 +46,47 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"hom_high_arm_LShape",
 								"hom_high_arm_RShape",
 								"hom_high_headShape",
 								"hom_high_BodyShape",
+								"hom_high_arm_LShape",
 							]
 						}
 					},
 				]
 			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "Homer"
+						activity_name = "ACT_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 61
+						framerate = -1.0
+						take = 1
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
 		]
-		model_archetype = ""
-		primary_associated_entity = ""
-		anim_graph_name = ""
-		base_model_name = ""
+		model_archetype = "generic_actor_model"
+		primary_associated_entity = "generic_actor"
+		anim_graph_name = "hit_s__run/animgraphs/homer.vanmgrph"
+		base_model_name = "models/characters/homer/homer.vmdl"
 	}
 }
