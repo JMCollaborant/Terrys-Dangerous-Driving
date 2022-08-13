@@ -46,10 +46,10 @@
 							exclude_by_default = true
 							exception_list = 
 							[
+								"hom_high_arm_LShape",
 								"hom_high_arm_RShape",
 								"hom_high_headShape",
 								"hom_high_BodyShape",
-								"hom_high_arm_LShape",
 							]
 						}
 					},
@@ -61,7 +61,7 @@
 				[
 					{
 						_class = "AnimFile"
-						name = "Homer"
+						name = "idle_rest"
 						activity_name = "ACT_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -80,13 +80,265 @@
 						take = 1
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						activity_name = "ACT_WALK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 31
+						framerate = -1.0
+						take = 12
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "run"
+						activity_name = "ACT_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 17
+						framerate = -1.0
+						take = 11
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kick"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 24
+						framerate = -1.0
+						take = 10
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_idle_take_off"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 8
+						framerate = -1.0
+						take = 8
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_idle_in_air_"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 17
+						framerate = -1.0
+						take = 6
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "flail_"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_idle_land"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 13
+						framerate = -1.0
+						take = 7
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_double"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 21
+						framerate = -1.0
+						take = 5
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_kick"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 19
+						framerate = -1.0
+						take = 9
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_buttslam_begin"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 9
+						framerate = -1.0
+						take = 2
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_buttslam_in_air"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 12
+						framerate = -1.0
+						take = 3
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jump_buttslam_land"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/Characters/Homer/Homer.fbx"
+						start_frame = 0
+						end_frame = 22
+						framerate = -1.0
+						take = 4
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
 		]
-		model_archetype = "generic_actor_model"
-		primary_associated_entity = "generic_actor"
-		anim_graph_name = "hit_s__run/animgraphs/homer.vanmgrph"
-		base_model_name = "models/characters/homer/homer.vmdl"
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
 	}
 }
