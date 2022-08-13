@@ -454,9 +454,9 @@
 				default_root_bone_name = "Motion_Root"
 			},
 		]
-		model_archetype = ""
-		primary_associated_entity = ""
-		anim_graph_name = ""
+		model_archetype = "generic_actor_model"
+		primary_associated_entity = "generic_actor"
+		anim_graph_name = "animgraphs/homer.vanmgrph"
 		base_model_name = ""
 	}
 }
