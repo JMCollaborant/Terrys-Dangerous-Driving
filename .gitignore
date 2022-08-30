@@ -1,3 +1,5 @@
 
 *.cache
 code/obj/Debug/hit_s__run.csproj.AssemblyReference.cache
+code/hit_s__run.csproj
+*.cache

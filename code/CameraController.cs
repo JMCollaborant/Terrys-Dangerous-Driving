@@ -8,7 +8,7 @@ namespace Sandbox {
     internal class CameraController : CameraMode {
 
         private Angles orbitAngle = new Angles( 0, 0, 0 );
-        private float goalOrbitDistance = 200f;
+        private float goalOrbitDistance = 125f;
 
         public override void Update() {
             Rotation = orbitAngle.ToRotation();
@@ -26,7 +26,7 @@ namespace Sandbox {
 
         public override void BuildInput( InputBuilder input ) {
             orbitAngle.pitch += input.AnalogLook.pitch;
-            orbitAngle.pitch = orbitAngle.pitch.Clamp( -89, 89 );
+            orbitAngle.pitch = orbitAngle.pitch.Clamp( -85, 85 );
 
             orbitAngle.yaw += input.AnalogLook.yaw;
             orbitAngle = orbitAngle.Normal;
