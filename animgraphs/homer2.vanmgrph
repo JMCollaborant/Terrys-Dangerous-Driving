@@ -198,13 +198,35 @@
 			{
 				key = 
 				{
+					m_id = 474665646
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -784.0, 304.0 ]
+					m_nNodeID = 
+					{
+						m_id = 474665646
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "Car_Generic_OpenDoor"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 828317870
 				}
 				value = 
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -304.0, -384.0 ]
+					m_vecPosition = [ -320.0, -384.0 ]
 					m_nNodeID = 
 					{
 						m_id = 828317870
@@ -501,7 +523,7 @@
 							{
 								m_id = 297492384
 							}
-							m_position = [ 64.0, -432.0 ]
+							m_position = [ 16.0, -384.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -535,6 +557,19 @@
 											m_paramID = 
 											{
 												m_id = 2082110667
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = false
+											}
+										},
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1140575139
 											}
 											m_comparisonValue = 
 											{
@@ -719,7 +754,7 @@
 							{
 								m_id = 900282937
 							}
-							m_position = [ -192.0, -576.0 ]
+							m_position = [ -128.0, -624.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -776,7 +811,7 @@
 							{
 								m_id = 1847959731
 							}
-							m_position = [ -256.0, -320.0 ]
+							m_position = [ -288.0, -304.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -867,7 +902,7 @@
 							{
 								m_id = 1272216656
 							}
-							m_position = [ -160.0, -432.0 ]
+							m_position = [ -112.0, -432.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -922,11 +957,58 @@
 											m_option = "FinishedConditionOption_OnFinished"
 											m_bIsFinished = true
 										},
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1140575139
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = false
+											}
+										},
 									]
 									m_blendDuration = 0.2
 									m_destState = 
 									{
 										m_id = 900282937
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1140575139
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = true
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1847959731
 									}
 									m_bReset = true
 									m_resetCycleOption = "Beginning"
@@ -958,7 +1040,7 @@
 							{
 								m_id = 1410415304
 							}
-							m_position = [ -240.0, -736.0 ]
+							m_position = [ -288.0, -528.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1015,7 +1097,7 @@
 							{
 								m_id = 203340937
 							}
-							m_position = [ -384.0, -608.0 ]
+							m_position = [ -416.0, -656.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1079,7 +1161,7 @@
 							{
 								m_id = 175098835
 							}
-							m_position = [ -384.0, -464.0 ]
+							m_position = [ -416.0, -496.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1136,7 +1218,7 @@
 							{
 								m_id = 1209571804
 							}
-							m_position = [ -384.0, -320.0 ]
+							m_position = [ -416.0, -352.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1268,7 +1350,7 @@
 							{
 								m_id = 28375468
 							}
-							m_position = [ -144.0, -144.0 ]
+							m_position = [ -80.0, -144.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1311,7 +1393,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -768.0, 240.0 ]
+					m_vecPosition = [ -784.0, 240.0 ]
 					m_nNodeID = 
 					{
 						m_id = 870623781
@@ -1319,7 +1401,7 @@
 					m_networkMode = "ServerAuthoritative"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "Get_into_car_generic"
+					m_sequenceName = "Car_Generic_GetInto"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -1559,7 +1641,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 200599593
+							m_id = 4294967295
 						}
 						m_outputID = 
 						{
@@ -1730,6 +1812,40 @@
 									m_bForceFootPlant = false
 									m_bDisabled = false
 								},
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 739609556
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = true
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1127524717
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
 							]
 							m_tags = [  ]
 							m_tagBehaviors = [  ]
@@ -1749,7 +1865,7 @@
 							{
 								m_id = 160371411
 							}
-							m_position = [ -432.0, -48.0 ]
+							m_position = [ -448.0, -48.0 ]
 							m_bIsStartState = true
 							m_bIsEndtState = false
 							m_bIsPassthrough = false

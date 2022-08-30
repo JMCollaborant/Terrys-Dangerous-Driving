@@ -24,7 +24,7 @@ partial class Pawn : AnimatedEntity {
 	private Rotation goalRotation;
 
 	private bool isGrounded = false;
-	private bool isJumping = false;
+	private bool ButtonPushJump = false;
 
 	private MoveHelper GetMoveHelper() {
 		MoveHelper moveHelper = new MoveHelper();
@@ -65,7 +65,7 @@ partial class Pawn : AnimatedEntity {
 
 		this.SetAnimParameter( "Speed", MathF.Abs( movement.Length ) );
 		this.SetAnimParameter( "isGrounded", isGrounded );
-		this.SetAnimParameter( "IsJumping", isJumping );
+		this.SetAnimParameter( "ButtonPushJump", ButtonPushJump );
 	}
 
 	private void UpdateIsGrounded() {
@@ -98,7 +98,7 @@ partial class Pawn : AnimatedEntity {
 
         // Landing
         if ( isGrounded ) {
-			isJumping = false;
+			ButtonPushJump = false;
 		}
 
 		// Ground movement
@@ -114,7 +114,7 @@ partial class Pawn : AnimatedEntity {
         // Jumping
         if ( isGrounded && Input.Pressed( InputButton.Jump ) ) {
 			Velocity += Vector3.Up * jumpVelocity;
-			isJumping = true;
+			ButtonPushJump = true;
 		}
 
 		DebugOverlay.Box( Position + hullMins, Position + hullMaxs );
