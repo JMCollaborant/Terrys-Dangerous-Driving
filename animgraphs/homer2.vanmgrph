@@ -15,7 +15,7 @@
 				{
 					_class = "CSpeedScaleAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -544.0, -352.0 ]
+					m_vecPosition = [ -544.0, -368.0 ]
 					m_nNodeID = 
 					{
 						m_id = 125686196
@@ -226,7 +226,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -320.0, -384.0 ]
+					m_vecPosition = [ -320.0, -400.0 ]
 					m_nNodeID = 
 					{
 						m_id = 828317870
@@ -277,7 +277,7 @@
 							{
 								m_id = 1588071039
 							}
-							m_position = [ -624.0, -144.0 ]
+							m_position = [ -592.0, -144.0 ]
 							m_bIsStartState = true
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1564,7 +1564,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "idel"
-					m_vecPosition = [ -1024.0, -576.0 ]
+					m_vecPosition = [ -1024.0, -592.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1097380499
@@ -1641,7 +1641,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 4294967295
+							m_id = 200599593
 						}
 						m_outputID = 
 						{
@@ -1765,7 +1765,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -320.0, 80.0 ]
+					m_vecPosition = [ -320.0, 64.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2079240469
@@ -1800,40 +1800,6 @@
 									m_destState = 
 									{
 										m_id = 1893796853
-									}
-									m_bReset = true
-									m_resetCycleOption = "Beginning"
-									m_flFixedCycleValue = 0.0
-									m_blendCurve = 
-									{
-										m_vControlPoint1 = [ 0.5, 0.0 ]
-										m_vControlPoint2 = [ 0.5, 1.0 ]
-									}
-									m_bForceFootPlant = false
-									m_bDisabled = false
-								},
-								{
-									_class = "CAnimStateTransition"
-									m_conditions = 
-									[
-										{
-											_class = "CParameterAnimCondition"
-											m_comparisonOp = 0
-											m_paramID = 
-											{
-												m_id = 739609556
-											}
-											m_comparisonValue = 
-											{
-												m_nType = 1
-												m_data = true
-											}
-										},
-									]
-									m_blendDuration = 0.2
-									m_destState = 
-									{
-										m_id = 1127524717
 									}
 									m_bReset = true
 									m_resetCycleOption = "Beginning"
@@ -1893,35 +1859,7 @@
 							{
 								m_id = 1893796853
 							}
-							m_position = [ -176.0, -112.0 ]
-							m_bIsStartState = false
-							m_bIsEndtState = false
-							m_bIsPassthrough = false
-							m_bIsRootMotionExclusive = false
-							m_bAlwaysEvaluate = false
-						},
-						{
-							_class = "CAnimState"
-							m_transitions = [  ]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
-							m_name = "Get into Car-High"
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-							m_stateID = 
-							{
-								m_id = 1127524717
-							}
-							m_position = [ -176.0, 48.0 ]
+							m_position = [ 48.0, -128.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -2063,7 +2001,17 @@
 	m_pTagManager = 
 	{
 		_class = "CAnimTagManager"
-		m_tags = [  ]
+		m_tags = 
+		[
+			{
+				_class = "CStringAnimTag"
+				m_name = "Unnamed Tag"
+				m_tagID = 
+				{
+					m_id = 92940417
+				}
+			},
+		]
 	}
 	m_pMovementManager = 
 	{
