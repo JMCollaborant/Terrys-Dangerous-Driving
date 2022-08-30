@@ -218,7 +218,7 @@
 							},
 							{
 								_class = "AnimFile"
-								name = "jump_idle_in_air_"
+								name = "jump_idle_in_air"
 								children = 
 								[
 									{
