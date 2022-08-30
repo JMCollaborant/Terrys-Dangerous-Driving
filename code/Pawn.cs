@@ -23,7 +23,7 @@ partial class Pawn : AnimatedEntity {
 
 	private Rotation goalRotation;
 
-	private bool isGrounded = false;
+	private bool IsGrounded = false;
 	private bool ButtonPushJump = false;
 
 	private MoveHelper GetMoveHelper() {
@@ -64,7 +64,7 @@ partial class Pawn : AnimatedEntity {
 		Vector3 movement = GetRemappedMovementVector();
 
 		this.SetAnimParameter( "Speed", MathF.Abs( movement.Length ) );
-		this.SetAnimParameter( "isGrounded", isGrounded );
+		this.SetAnimParameter( "IsGrounded", IsGrounded );
 		this.SetAnimParameter( "ButtonPushJump", ButtonPushJump );
 	}
 
@@ -77,7 +77,7 @@ partial class Pawn : AnimatedEntity {
 
         DebugOverlay.TraceResult( collisionInfo );
 
-		isGrounded = moveHelper.IsFloor( collisionInfo ) && !isMovingUp;
+		IsGrounded = moveHelper.IsFloor( collisionInfo ) && !isMovingUp;
 	}
 
 	private void UpdateMovement() {
@@ -97,22 +97,22 @@ partial class Pawn : AnimatedEntity {
 		float movementSpeed = movement.Length * groundSpeed;
 
         // Landing
-        if ( isGrounded ) {
+        if ( IsGrounded ) {
 			ButtonPushJump = false;
 		}
 
 		// Ground movement
-        if ( isGrounded ) {
+        if ( IsGrounded ) {
 			Velocity += movementDirectionAdjustedforCamera * movementSpeed * Time.Delta;
         }
 
 		// Gravity
-        if ( !isGrounded ) {
+        if ( !IsGrounded ) {
 			Velocity += gravity * Time.Delta;
         }
 
         // Jumping
-        if ( isGrounded && Input.Pressed( InputButton.Jump ) ) {
+        if ( IsGrounded && Input.Pressed( InputButton.Jump ) ) {
 			Velocity += Vector3.Up * jumpVelocity;
 			ButtonPushJump = true;
 		}
@@ -123,7 +123,7 @@ partial class Pawn : AnimatedEntity {
 		moveHelper.Velocity = Velocity;
 
 		// Ground friction
-		if ( isGrounded ) {
+		if ( IsGrounded ) {
 			moveHelper.ApplyFriction( groundFriction, Time.Delta );
 
 		// Air friction
