@@ -767,15 +767,7 @@
 							[
 								{
 									_class = "CAnimStateTransition"
-									m_conditions = 
-									[
-										{
-											_class = "CFinishedCondition"
-											m_comparisonOp = 0
-											m_option = "FinishedConditionOption_OnFinished"
-											m_bIsFinished = true
-										},
-									]
+									m_conditions = [  ]
 									m_blendDuration = 0.2
 									m_destState = 
 									{
