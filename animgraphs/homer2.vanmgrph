@@ -583,7 +583,7 @@
 											m_comparisonOp = 0
 											m_paramID = 
 											{
-												m_id = 2082110667
+												m_id = 2131343211
 											}
 											m_comparisonValue = 
 											{
@@ -630,7 +630,7 @@
 											m_comparisonOp = 0
 											m_paramID = 
 											{
-												m_id = 1206084123
+												m_id = 2131343211
 											}
 											m_comparisonValue = 
 											{
@@ -644,19 +644,6 @@
 											m_paramID = 
 											{
 												m_id = 1140575139
-											}
-											m_comparisonValue = 
-											{
-												m_nType = 1
-												m_data = false
-											}
-										},
-										{
-											_class = "CParameterAnimCondition"
-											m_comparisonOp = 0
-											m_paramID = 
-											{
-												m_id = 2082110667
 											}
 											m_comparisonValue = 
 											{
@@ -690,7 +677,7 @@
 											m_comparisonOp = 0
 											m_paramID = 
 											{
-												m_id = 2082110667
+												m_id = 2131343211
 											}
 											m_comparisonValue = 
 											{
@@ -947,6 +934,19 @@
 											m_paramID = 
 											{
 												m_id = 443500455
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = true
+											}
+										},
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 2131343211
 											}
 											m_comparisonValue = 
 											{
@@ -2484,7 +2484,7 @@
 				m_previewButton = "ANIMPARAM_BUTTON_NONE"
 				m_bNetwork = false
 				m_bUseMostRecentValue = false
-				m_bAutoReset = true
+				m_bAutoReset = false
 				m_bPredicted = false
 				m_bDefaultValue = false
 			},
@@ -2525,20 +2525,6 @@
 				m_id = 
 				{
 					m_id = 1140575139
-				}
-				m_previewButton = "ANIMPARAM_BUTTON_NONE"
-				m_bNetwork = false
-				m_bUseMostRecentValue = false
-				m_bAutoReset = false
-				m_bPredicted = false
-				m_bDefaultValue = false
-			},
-			{
-				_class = "CBoolAnimParameter"
-				m_name = "HasDoubleJumped"
-				m_id = 
-				{
-					m_id = 2082110667
 				}
 				m_previewButton = "ANIMPARAM_BUTTON_NONE"
 				m_bNetwork = false
@@ -2625,6 +2611,20 @@
 					"High Car",
 					"NPC Car",
 				]
+			},
+			{
+				_class = "CBoolAnimParameter"
+				m_name = "ButtonPushDoubleJump"
+				m_id = 
+				{
+					m_id = 2131343211
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = false
+				m_bDefaultValue = false
 			},
 		]
 	}
