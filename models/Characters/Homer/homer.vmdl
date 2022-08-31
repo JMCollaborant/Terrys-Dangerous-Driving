@@ -90,7 +90,7 @@
 								start_frame = 0
 								end_frame = 61
 								framerate = -1.0
-								take = 4
+								take = 6
 								reverse = false
 							},
 							{
@@ -119,14 +119,14 @@
 								start_frame = 0
 								end_frame = 106
 								framerate = -1.0
-								take = 5
+								take = 7
 								reverse = false
 							},
 						]
 					},
 					{
 						_class = "AnimFile"
-						name = "flail_"
+						name = "flail"
 						children = 
 						[
 							{
@@ -150,7 +150,7 @@
 						start_frame = 0
 						end_frame = 17
 						framerate = -1.0
-						take = 10
+						take = 12
 						reverse = false
 					},
 					{
@@ -184,7 +184,7 @@
 								start_frame = 0
 								end_frame = 31
 								framerate = -1.0
-								take = 17
+								take = 19
 								reverse = false
 							},
 							{
@@ -213,7 +213,7 @@
 								start_frame = 0
 								end_frame = 17
 								framerate = -1.0
-								take = 16
+								take = 18
 								reverse = false
 							},
 							{
@@ -242,7 +242,7 @@
 								start_frame = 0
 								end_frame = 24
 								framerate = -1.0
-								take = 15
+								take = 17
 								reverse = false
 							},
 						]
@@ -278,7 +278,7 @@
 								start_frame = 0
 								end_frame = 8
 								framerate = -1.0
-								take = 13
+								take = 15
 								reverse = false
 							},
 							{
@@ -307,7 +307,7 @@
 								start_frame = 0
 								end_frame = 17
 								framerate = -1.0
-								take = 11
+								take = 13
 								reverse = false
 							},
 							{
@@ -336,7 +336,7 @@
 								start_frame = 0
 								end_frame = 13
 								framerate = -1.0
-								take = 12
+								take = 14
 								reverse = false
 							},
 							{
@@ -365,7 +365,7 @@
 								start_frame = 0
 								end_frame = 21
 								framerate = -1.0
-								take = 9
+								take = 11
 								reverse = false
 							},
 							{
@@ -394,7 +394,7 @@
 								start_frame = 0
 								end_frame = 19
 								framerate = -1.0
-								take = 14
+								take = 16
 								reverse = false
 							},
 							{
@@ -423,7 +423,7 @@
 								start_frame = 0
 								end_frame = 9
 								framerate = -1.0
-								take = 8
+								take = 10
 								reverse = false
 							},
 							{
@@ -452,7 +452,7 @@
 								start_frame = 0
 								end_frame = 12
 								framerate = -1.0
-								take = 6
+								take = 8
 								reverse = false
 							},
 							{
@@ -481,7 +481,7 @@
 								start_frame = 0
 								end_frame = 22
 								framerate = -1.0
-								take = 7
+								take = 9
 								reverse = false
 							},
 						]
@@ -492,62 +492,192 @@
 						children = 
 						[
 							{
-								_class = "AnimFile"
-								name = "Car_Generic_GetInto"
+								_class = "Folder"
+								name = "Generic_Car"
 								children = 
 								[
 									{
-										_class = "AnimOffset"
-										translation = [ 20.0, 0.0, 0.0 ]
-										rotation_xyz = [ 0.0, 0.0, 0.0 ]
+										_class = "AnimFile"
+										name = "Car_Generic_GetInto"
+										children = 
+										[
+											{
+												_class = "AnimOffset"
+												translation = [ 20.0, 0.0, 0.0 ]
+												rotation_xyz = [ 0.0, 0.0, 0.0 ]
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										source_filename = "models/Characters/Homer/Homer.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 0
+										reverse = false
+									},
+									{
+										_class = "AnimFile"
+										name = "Car_Generic_OpenDoor"
+										children = 
+										[
+											{
+												_class = "AnimOffset"
+												translation = [ 20.0, 0.0, 0.0 ]
+												rotation_xyz = [ 0.0, 0.0, 0.0 ]
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										source_filename = "models/Characters/Homer/Homer.fbx"
+										start_frame = 0
+										end_frame = 14
+										framerate = -1.0
+										take = 4
+										reverse = false
+									},
+									{
+										_class = "AnimFile"
+										name = "Car_Generic_CloseDoor"
+										children = 
+										[
+											{
+												_class = "AnimOffset"
+												translation = [ 20.0, 0.0, 0.0 ]
+												rotation_xyz = [ 0.0, 0.0, 0.0 ]
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										source_filename = "models/Characters/Homer/Homer.fbx"
+										start_frame = 0
+										end_frame = 12
+										framerate = -1.0
+										take = 1
+										reverse = false
 									},
 								]
-								activity_name = ""
-								activity_weight = 1
-								weight_list_name = ""
-								fade_in_time = 0.2
-								fade_out_time = 0.2
-								looping = false
-								delta = false
-								worldSpace = false
-								hidden = false
-								anim_markup_ordered = false
-								disable_compression = false
-								source_filename = "models/Characters/Homer/Homer.fbx"
-								start_frame = -1
-								end_frame = -1
-								framerate = -1.0
-								take = 0
-								reverse = false
 							},
 							{
-								_class = "AnimFile"
-								name = "Car_Generic_OpenDoor"
+								_class = "Folder"
+								name = "High_Car"
 								children = 
 								[
 									{
-										_class = "AnimOffset"
-										translation = [ 20.0, 0.0, 0.0 ]
-										rotation_xyz = [ 0.0, 0.0, 0.0 ]
+										_class = "AnimFile"
+										name = "Car_High_GetInto"
+										children = 
+										[
+											{
+												_class = "AnimOffset"
+												translation = [ 20.0, 0.0, 0.0 ]
+												rotation_xyz = [ 0.0, 0.0, 0.0 ]
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										source_filename = "models/Characters/Homer/Homer.fbx"
+										start_frame = 0
+										end_frame = 18
+										framerate = -1.0
+										take = 3
+										reverse = false
+									},
+									{
+										_class = "AnimFile"
+										name = "Car_High_OpenDoor"
+										children = 
+										[
+											{
+												_class = "AnimOffset"
+												translation = [ 20.0, 0.0, 0.0 ]
+												rotation_xyz = [ 0.0, 0.0, 0.0 ]
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										source_filename = "models/Characters/Homer/Homer.fbx"
+										start_frame = 0
+										end_frame = 14
+										framerate = -1.0
+										take = 5
+										reverse = false
+									},
+									{
+										_class = "AnimFile"
+										name = "Car_High_CloseDoor"
+										children = 
+										[
+											{
+												_class = "AnimOffset"
+												translation = [ 20.0, 0.0, 0.0 ]
+												rotation_xyz = [ 0.0, 0.0, 0.0 ]
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										source_filename = "models/Characters/Homer/Homer.fbx"
+										start_frame = 0
+										end_frame = 12
+										framerate = -1.0
+										take = 2
+										reverse = false
 									},
 								]
-								activity_name = ""
-								activity_weight = 1
-								weight_list_name = ""
-								fade_in_time = 0.2
-								fade_out_time = 0.2
-								looping = false
-								delta = false
-								worldSpace = false
-								hidden = false
-								anim_markup_ordered = false
-								disable_compression = false
-								source_filename = "models/Characters/Homer/Homer.fbx"
-								start_frame = 0
-								end_frame = 14
-								framerate = -1.0
-								take = 2
-								reverse = false
 							},
 						]
 					},
