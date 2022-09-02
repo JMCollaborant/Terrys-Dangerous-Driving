@@ -23,8 +23,14 @@ partial class Pawn : AnimatedEntity {
 
 	private Rotation goalRotation;
 
-	private bool IsGrounded = false;
-	private bool ButtonPushJump = false;
+	private bool isGrounded = false;
+	private bool justJumped = false;
+	private float lastJumpTime = Time.Now;
+
+	/// <summary>
+	/// Minimum time between jumps, in seconds
+	/// </summary>
+	private static float minJumpDelay = 0.5f;
 
 	private MoveHelper GetMoveHelper() {
 		MoveHelper moveHelper = new MoveHelper();
@@ -64,8 +70,8 @@ partial class Pawn : AnimatedEntity {
 		Vector3 movement = GetRemappedMovementVector();
 
 		this.SetAnimParameter( "Speed", MathF.Abs( movement.Length ) );
-		this.SetAnimParameter( "IsGrounded", IsGrounded );
-		this.SetAnimParameter( "ButtonPushJump", ButtonPushJump );
+		this.SetAnimParameter( "IsGrounded", isGrounded );
+		this.SetAnimParameter( "ButtonPushJump", justJumped );
 	}
 
 	private void UpdateIsGrounded() {
@@ -73,11 +79,11 @@ partial class Pawn : AnimatedEntity {
 		TraceResult collisionInfo = moveHelper.TraceFromTo( Position, Position + Vector3.Down * 2f );
 
 		// Don't count as grounded if we're moving upward
-		bool isMovingUp = Velocity.z > 1f;
+		bool isMovingUp = Velocity.z > 0f;
 
         DebugOverlay.TraceResult( collisionInfo );
 
-		IsGrounded = moveHelper.IsFloor( collisionInfo ) && !isMovingUp;
+		isGrounded = moveHelper.IsFloor( collisionInfo ) && !isMovingUp;
 	}
 
 	private void UpdateMovement() {
@@ -96,26 +102,25 @@ partial class Pawn : AnimatedEntity {
 
 		float movementSpeed = movement.Length * groundSpeed;
 
-        // Landing
-        if ( IsGrounded ) {
-			ButtonPushJump = false;
-		}
-
 		// Ground movement
-        if ( IsGrounded ) {
+        if ( isGrounded ) {
 			Velocity += movementDirectionAdjustedforCamera * movementSpeed * Time.Delta;
         }
 
 		// Gravity
-        if ( !IsGrounded ) {
+        if ( !isGrounded ) {
 			Velocity += gravity * Time.Delta;
         }
 
-        // Jumping
-        if ( IsGrounded && Input.Pressed( InputButton.Jump ) ) {
-			Velocity += Vector3.Up * jumpVelocity;
-			ButtonPushJump = true;
-		}
+		// Jumping
+		bool jumpTimeIsRight = ( Time.Now - lastJumpTime ) > minJumpDelay;
+        if ( isGrounded && Input.Pressed( InputButton.Jump ) && jumpTimeIsRight ) {
+			Velocity = Velocity.WithZ( jumpVelocity );
+			justJumped = true;
+			lastJumpTime = Time.Now;
+        } else {
+			justJumped = false;
+        }
 
 		DebugOverlay.Box( Position + hullMins, Position + hullMaxs );
 
@@ -123,7 +128,7 @@ partial class Pawn : AnimatedEntity {
 		moveHelper.Velocity = Velocity;
 
 		// Ground friction
-		if ( IsGrounded ) {
+		if ( isGrounded ) {
 			moveHelper.ApplyFriction( groundFriction, Time.Delta );
 
 		// Air friction
