@@ -17,8 +17,8 @@
   "libraries": {
     "base/1.0.0": {
       "type": "project",
-      "path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\addons\\base\\code\\base.csproj",
-      "msbuildProject": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\sbox\\addons\\base\\code\\base.csproj"
+      "path": "../../../../../../../Program Files (x86)/Steam/steamapps/common/sbox/addons/base/code/base.csproj",
+      "msbuildProject": "../../../../../../../Program Files (x86)/Steam/steamapps/common/sbox/addons/base/code/base.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JohnM\\.nuget\\packages\\": {}
+    "C:\\Users\\mschm\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Sandbox\\Hit&Run\\code\\hit_s__run.csproj",
+      "projectUniqueName": "C:\\Users\\mschm\\OneDrive\\Documents\\GitHub\\Hit-Sand-Run\\code\\hit_s__run.csproj",
       "projectName": "hit_s__run",
-      "projectPath": "D:\\Sandbox\\Hit&Run\\code\\hit_s__run.csproj",
-      "packagesPath": "C:\\Users\\JohnM\\.nuget\\packages\\",
-      "outputPath": "D:\\Sandbox\\Hit&Run\\code\\obj\\",
+      "projectPath": "C:\\Users\\mschm\\OneDrive\\Documents\\GitHub\\Hit-Sand-Run\\code\\hit_s__run.csproj",
+      "packagesPath": "C:\\Users\\mschm\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mschm\\OneDrive\\Documents\\GitHub\\Hit-Sand-Run\\code\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\JohnM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mschm\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -78,12 +78,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }

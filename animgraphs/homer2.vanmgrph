@@ -48,7 +48,7 @@
 				{
 					_class = "CSelectorAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 80.0, -128.0 ]
+					m_vecPosition = [ 96.0, -112.0 ]
 					m_nNodeID = 
 					{
 						m_id = 200599593
@@ -204,7 +204,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -784.0, 304.0 ]
+					m_vecPosition = [ -784.0, 240.0 ]
 					m_nNodeID = 
 					{
 						m_id = 474665646
@@ -220,13 +220,35 @@
 			{
 				key = 
 				{
+					m_id = 803933613
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -784.0, 384.0 ]
+					m_nNodeID = 
+					{
+						m_id = 803933613
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "Car_High_OpenDoor"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 828317870
 				}
 				value = 
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -320.0, -400.0 ]
+					m_vecPosition = [ -320.0, -416.0 ]
 					m_nNodeID = 
 					{
 						m_id = 828317870
@@ -277,7 +299,7 @@
 							{
 								m_id = 1588071039
 							}
-							m_position = [ -592.0, -144.0 ]
+							m_position = [ -608.0, -112.0 ]
 							m_bIsStartState = true
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -409,7 +431,7 @@
 							{
 								m_id = 1164305379
 							}
-							m_position = [ -384.0, -144.0 ]
+							m_position = [ -416.0, -112.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -466,7 +488,7 @@
 							{
 								m_id = 1721710817
 							}
-							m_position = [ -176.0, 16.0 ]
+							m_position = [ 32.0, 64.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -505,8 +527,13 @@
 									m_bDisabled = false
 								},
 							]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
+							m_tags = 
+							[
+								{
+									m_id = 1859532910
+								},
+							]
+							m_tagBehaviors = [ 2 ]
 							m_name = "Jump_Idle_Start"
 							m_inputConnection = 
 							{
@@ -523,7 +550,7 @@
 							{
 								m_id = 297492384
 							}
-							m_position = [ 16.0, -384.0 ]
+							m_position = [ 32.0, -352.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -556,7 +583,7 @@
 											m_comparisonOp = 0
 											m_paramID = 
 											{
-												m_id = 2082110667
+												m_id = 2131343211
 											}
 											m_comparisonValue = 
 											{
@@ -603,7 +630,7 @@
 											m_comparisonOp = 0
 											m_paramID = 
 											{
-												m_id = 1206084123
+												m_id = 2131343211
 											}
 											m_comparisonValue = 
 											{
@@ -617,19 +644,6 @@
 											m_paramID = 
 											{
 												m_id = 1140575139
-											}
-											m_comparisonValue = 
-											{
-												m_nType = 1
-												m_data = false
-											}
-										},
-										{
-											_class = "CParameterAnimCondition"
-											m_comparisonOp = 0
-											m_paramID = 
-											{
-												m_id = 2082110667
 											}
 											m_comparisonValue = 
 											{
@@ -663,7 +677,7 @@
 											m_comparisonOp = 0
 											m_paramID = 
 											{
-												m_id = 2082110667
+												m_id = 2131343211
 											}
 											m_comparisonValue = 
 											{
@@ -736,8 +750,13 @@
 									m_bDisabled = false
 								},
 							]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
+							m_tags = 
+							[
+								{
+									m_id = 1859532910
+								},
+							]
+							m_tagBehaviors = [ 0 ]
 							m_name = "Jump_Idle_In Air"
 							m_inputConnection = 
 							{
@@ -894,7 +913,7 @@
 							{
 								m_id = 1272216656
 							}
-							m_position = [ -112.0, -432.0 ]
+							m_position = [ -96.0, -432.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -915,6 +934,19 @@
 											m_paramID = 
 											{
 												m_id = 443500455
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = true
+											}
+										},
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 2131343211
 											}
 											m_comparisonValue = 
 											{
@@ -1014,8 +1046,13 @@
 									m_bDisabled = false
 								},
 							]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
+							m_tags = 
+							[
+								{
+									m_id = 1859532910
+								},
+							]
+							m_tagBehaviors = [ 0 ]
 							m_name = "Jump_double"
 							m_inputConnection = 
 							{
@@ -1032,7 +1069,7 @@
 							{
 								m_id = 1410415304
 							}
-							m_position = [ -288.0, -528.0 ]
+							m_position = [ -304.0, -528.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1089,7 +1126,7 @@
 							{
 								m_id = 203340937
 							}
-							m_position = [ -416.0, -656.0 ]
+							m_position = [ -432.0, -624.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1153,7 +1190,7 @@
 							{
 								m_id = 175098835
 							}
-							m_position = [ -416.0, -496.0 ]
+							m_position = [ -432.0, -496.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1210,7 +1247,7 @@
 							{
 								m_id = 1209571804
 							}
-							m_position = [ -416.0, -352.0 ]
+							m_position = [ -432.0, -352.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1342,7 +1379,7 @@
 							{
 								m_id = 28375468
 							}
-							m_position = [ -80.0, -144.0 ]
+							m_position = [ 32.0, -112.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1385,7 +1422,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -784.0, 240.0 ]
+					m_vecPosition = [ -784.0, 192.0 ]
 					m_nNodeID = 
 					{
 						m_id = 870623781
@@ -1394,6 +1431,28 @@
 					m_sNote = ""
 					m_tagSpans = [  ]
 					m_sequenceName = "Car_Generic_GetInto"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 935772769
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -784.0, 288.0 ]
+					m_nNodeID = 
+					{
+						m_id = 935772769
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "Car_Generic_CloseDoor"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -1506,6 +1565,28 @@
 			{
 				key = 
 				{
+					m_id = 1039207724
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -784.0, 432.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1039207724
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "Car_High_CloseDoor"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1039772495
 				}
 				value = 
@@ -1521,6 +1602,28 @@
 					m_sNote = ""
 					m_tagSpans = [  ]
 					m_sequenceName = "jump_buttslam_begin"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1052965767
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -784.0, 336.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1052965767
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "Car_High_GetInto"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -1757,7 +1860,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -320.0, 64.0 ]
+					m_vecPosition = [ -368.0, 96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2079240469
@@ -1779,19 +1882,53 @@
 											m_comparisonOp = 0
 											m_paramID = 
 											{
-												m_id = 739609556
+												m_id = 265697926
 											}
 											m_comparisonValue = 
 											{
-												m_nType = 1
-												m_data = true
+												m_nType = 2
+												m_data = 0
 											}
 										},
 									]
 									m_blendDuration = 0.2
 									m_destState = 
 									{
-										m_id = 1893796853
+										m_id = 6806509
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 265697926
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 2
+												m_data = 1
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1409252063
 									}
 									m_bReset = true
 									m_resetCycleOption = "Beginning"
@@ -1823,7 +1960,7 @@
 							{
 								m_id = 160371411
 							}
-							m_position = [ -448.0, -48.0 ]
+							m_position = [ -480.0, -96.0 ]
 							m_bIsStartState = true
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1832,10 +1969,44 @@
 						},
 						{
 							_class = "CAnimState"
-							m_transitions = [  ]
-							m_tags = [  ]
-							m_tagBehaviors = [  ]
-							m_name = "Get into Car-Generic"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 2091794821
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+							]
+							m_tags = 
+							[
+								{
+									m_id = 92940417
+								},
+							]
+							m_tagBehaviors = [ 0 ]
+							m_name = "Car Generic - Get In"
 							m_inputConnection = 
 							{
 								m_nodeID = 
@@ -1851,7 +2022,440 @@
 							{
 								m_id = 1893796853
 							}
-							m_position = [ 48.0, -128.0 ]
+							m_position = [ -144.0, -240.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1893796853
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+							]
+							m_tags = 
+							[
+								{
+									m_id = 92940417
+								},
+							]
+							m_tagBehaviors = [ 0 ]
+							m_name = "Car Generic - Open Door"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 474665646
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1694544262
+							}
+							m_position = [ -144.0, -112.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = [  ]
+							m_tags = 
+							[
+								{
+									m_id = 92940417
+								},
+							]
+							m_tagBehaviors = [ 1 ]
+							m_name = "Car Generic - Close Door"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 935772769
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 2091794821
+							}
+							m_position = [ 96.0, -240.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 6194078
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Car High - Get In"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1052965767
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 73372252
+							}
+							m_position = [ -144.0, 16.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 73372252
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Car Hight - Open Door"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 803933613
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 505555145
+							}
+							m_position = [ -144.0, 144.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = [  ]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Car High - Close Door"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1039207724
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 6194078
+							}
+							m_position = [ 96.0, 16.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1482286018
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = false
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1893796853
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1482286018
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = true
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1694544262
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Car Generic"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 6806509
+							}
+							m_position = [ -320.0, -240.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1482286018
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = false
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 73372252
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CParameterAnimCondition"
+											m_comparisonOp = 0
+											m_paramID = 
+											{
+												m_id = 1482286018
+											}
+											m_comparisonValue = 
+											{
+												m_nType = 1
+												m_data = true
+											}
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 505555145
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Car High"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1409252063
+							}
+							m_position = [ -320.0, 16.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1880,7 +2484,7 @@
 				m_previewButton = "ANIMPARAM_BUTTON_NONE"
 				m_bNetwork = false
 				m_bUseMostRecentValue = false
-				m_bAutoReset = true
+				m_bAutoReset = false
 				m_bPredicted = false
 				m_bDefaultValue = false
 			},
@@ -1917,24 +2521,10 @@
 			},
 			{
 				_class = "CBoolAnimParameter"
-				m_name = "isGrounded"
+				m_name = "IsGrounded"
 				m_id = 
 				{
 					m_id = 1140575139
-				}
-				m_previewButton = "ANIMPARAM_BUTTON_NONE"
-				m_bNetwork = false
-				m_bUseMostRecentValue = false
-				m_bAutoReset = false
-				m_bPredicted = false
-				m_bDefaultValue = false
-			},
-			{
-				_class = "CBoolAnimParameter"
-				m_name = "HasDoubleJumped"
-				m_id = 
-				{
-					m_id = 2082110667
 				}
 				m_previewButton = "ANIMPARAM_BUTTON_NONE"
 				m_bNetwork = false
@@ -1962,7 +2552,7 @@
 			},
 			{
 				_class = "CBoolAnimParameter"
-				m_name = "isSprinting"
+				m_name = "IsSprinting"
 				m_id = 
 				{
 					m_id = 339822830
@@ -1976,13 +2566,61 @@
 			},
 			{
 				_class = "CBoolAnimParameter"
-				m_name = "inCar"
+				m_name = "InCar"
 				m_id = 
 				{
 					m_id = 739609556
 				}
 				m_previewButton = "ANIMPARAM_BUTTON_NONE"
 				m_bNetwork = false
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = false
+				m_bDefaultValue = false
+			},
+			{
+				_class = "CBoolAnimParameter"
+				m_name = "DoorClosed"
+				m_id = 
+				{
+					m_id = 1482286018
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = false
+				m_bDefaultValue = false
+			},
+			{
+				_class = "CEnumAnimParameter"
+				m_name = "CarType"
+				m_id = 
+				{
+					m_id = 265697926
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = false
+				m_defaultValue = 0
+				m_enumOptions = 
+				[
+					"Generic Car",
+					"High Car",
+					"NPC Car",
+				]
+			},
+			{
+				_class = "CBoolAnimParameter"
+				m_name = "ButtonPushDoubleJump"
+				m_id = 
+				{
+					m_id = 2131343211
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
 				m_bUseMostRecentValue = false
 				m_bAutoReset = false
 				m_bPredicted = false
@@ -1996,12 +2634,13 @@
 		m_tags = 
 		[
 			{
-				_class = "CStringAnimTag"
-				m_name = "Unnamed Tag"
+				_class = "CTaskStatusAnimTag"
+				m_name = "IsJumping"
 				m_tagID = 
 				{
-					m_id = 92940417
+					m_id = 1859532910
 				}
+				m_identifierString = ""
 			},
 		]
 	}
