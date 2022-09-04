@@ -9,15 +9,23 @@ namespace Sandbox;
 partial class Pawn : AnimatedEntity {
 
 	private static Vector3 gravity = new Vector3( 0, 0, -200 );
-	private static float groundSpeed = 1300.0f;
+	
+	private static float groundMaxSpeed = 200.0f;
+	private static float groundAcceleration = 30f;
+
+	private static float airMaxSpeed = 100.0f;
+	private static float airAcceleration = 5f;
+
+	private static float groundRotationSpeed = 10f;
+	private static float airRotationSpeed = 3.5f;
+
 	private static float jumpVelocity = 200.0f;
 
 	private static Vector3 hullSize = new Vector3( 16, 16, 34.0f );
 	private static Vector3 hullMins = new Vector3( -hullSize.x, -hullSize.y, 0 );
 	private static Vector3 hullMaxs = hullSize.WithZ( hullSize.z * 2 );
 
-	private static float groundFriction = 4.0f;
-	private static float airFriction = 1.0f;
+	private static float groundFriction = 10.0f;
 
 	private CameraController cameraController;
 
@@ -61,8 +69,8 @@ partial class Pawn : AnimatedEntity {
 	}
 
 	private Vector3 GetRemappedMovementVector() {
-		float remappedForward = MathF.Abs( Input.Forward ).Remap( 0.4f, 1, 0, 1 ) * MathF.Sign( Input.Forward );
-		float remappedLeft = MathF.Abs( Input.Left ).Remap( 0.4f, 1, 0, 1 ) * MathF.Sign( Input.Left );
+		float remappedForward = MathF.Abs( Input.Forward ).Remap( 0.0f, 1, 0, 1 ) * MathF.Sign( Input.Forward );
+		float remappedLeft = MathF.Abs( Input.Left ).Remap( 0.0f, 1, 0, 1 ) * MathF.Sign( Input.Left );
 		return new Vector3( remappedForward, remappedLeft, 0 );
 	}
 
@@ -81,69 +89,102 @@ partial class Pawn : AnimatedEntity {
 		// Don't count as grounded if we're moving upward
 		bool isMovingUp = Velocity.z > 0f;
 
-        DebugOverlay.TraceResult( collisionInfo );
+        //DebugOverlay.TraceResult( collisionInfo );
 
 		isGrounded = moveHelper.IsFloor( collisionInfo ) && !isMovingUp;
 	}
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns>The player's new velocity velocity</returns>
+	private Vector3 HandleMovement( Vector3 currentVelocity, float maxSpeed, float maxAcceleration ) {
+		Vector3 movement = GetRemappedMovementVector();
+		float cameraYaw = Input.Rotation.Yaw();
+		Vector3 movementDirectionAdjustedforCamera = movement.Normal * Rotation.FromYaw( cameraYaw );
+
+		float currentSpeed = currentVelocity.Length;
+		float speedCap = Math.Max( maxSpeed * movement.Length, currentSpeed );
+
+		Vector3 newDesiredSpeed = currentVelocity + movementDirectionAdjustedforCamera * maxAcceleration * movement.Length;
+
+		if ( newDesiredSpeed.Length > speedCap ) {
+			newDesiredSpeed = newDesiredSpeed.Normal * speedCap;
+		}
+
+		return newDesiredSpeed;
+	}
+
 	private void UpdateMovement() {
+
 		MoveHelper moveHelper = GetMoveHelper();
+		moveHelper.Velocity = Velocity;
 
 		Vector3 movement = GetRemappedMovementVector();
 
 		float cameraYaw = Input.Rotation.Yaw();
 		Vector3 movementDirectionAdjustedforCamera = movement.Normal * Rotation.FromYaw( cameraYaw );
 
-        if ( movementDirectionAdjustedforCamera.Length > 0f ) {
+		// Rotate to face our direction of movement
+        if ( movement.Length > 0f ) {
 			goalRotation = movementDirectionAdjustedforCamera.EulerAngles.ToRotation();
         }
-
-		groundSpeed = 900f;
-
-		float movementSpeed = movement.Length * groundSpeed;
-
-		// Ground movement
+		
+		// Grounded behavior
         if ( isGrounded ) {
-			Velocity += movementDirectionAdjustedforCamera * movementSpeed * Time.Delta;
-        }
 
-		// Gravity
-        if ( !isGrounded ) {
-			Velocity += gravity * Time.Delta;
-        }
+			// Debug overlay
+			Vector3 debugPos = Position + 3f;
+			// Max ground speed
+			DebugOverlay.Circle( Position + Vector3.Up * 2f, Rotation.FromAxis( Vector3.Right, 90 ), groundMaxSpeed, Color.Blue.WithAlpha( 0.25f ), 0, true );
+			// Velocity
+			DebugOverlay.Line( debugPos, debugPos + Velocity, Color.Red, 0, false );
 
-		// Jumping
-		bool jumpTimeIsRight = ( Time.Now - lastJumpTime ) > minJumpDelay;
-        if ( isGrounded && Input.Pressed( InputButton.Jump ) && jumpTimeIsRight ) {
-			Velocity = Velocity.WithZ( jumpVelocity );
-			justJumped = true;
-			lastJumpTime = Time.Now;
-        } else {
-			justJumped = false;
-        }
+			// Jumping
+			bool jumpTimeIsRight = ( Time.Now - lastJumpTime ) > minJumpDelay;
+			if ( Input.Pressed( InputButton.Jump ) && jumpTimeIsRight ) {
+				moveHelper.Velocity = moveHelper.Velocity.WithZ( jumpVelocity );
+				justJumped = true;
+				lastJumpTime = Time.Now;
+			} else {
+				justJumped = false;
+			}
+
+			// Friction
+			if ( movement.Length <= 0 ) {
+				moveHelper.ApplyFriction( groundFriction, Time.Delta );
+            
+			// Ground movement
+			} else {
+				moveHelper.Velocity = HandleMovement( moveHelper.Velocity, groundMaxSpeed, groundAcceleration );
+			}
+
+		// Air behavior
+		} else {
+
+			// Air movement
+			moveHelper.Velocity = HandleMovement( moveHelper.Velocity, airMaxSpeed, airAcceleration );
+
+			// Gravity
+			moveHelper.Velocity += gravity * Time.Delta;
+		}
 
 		DebugOverlay.Box( Position + hullMins, Position + hullMaxs );
 
-		// Apply movement velocity to move helper
-		moveHelper.Velocity = Velocity;
 
-		// Ground friction
-		if ( isGrounded ) {
-			moveHelper.ApplyFriction( groundFriction, Time.Delta );
-
-		// Air friction
+        // Player rotation
+        if ( isGrounded ) {
+			Rotation = Rotation.Slerp( Rotation, goalRotation, groundRotationSpeed * Time.Delta );
         } else {
-			// We want to ignore Z friction to avoid screwing with gravity or anything
-			float zVelocity = moveHelper.Velocity.z;
-			moveHelper.ApplyFriction( airFriction, Time.Delta );
-			moveHelper.Velocity.z = zVelocity;
+			Rotation = Rotation.Slerp( Rotation, goalRotation, airRotationSpeed * Time.Delta );
 		}
+		
 
-		float movePercent = moveHelper.TryMoveWithStep( Time.Delta, 4f );
+		// Move the player towards their velocity
+		moveHelper.TryMoveWithStep( Time.Delta, 4f );
 
 		Velocity = moveHelper.Velocity;
 		Position = moveHelper.Position;
-		Rotation = Rotation.Slerp( Rotation, goalRotation, 0.25f );
 	}
 
 	/// <summary>

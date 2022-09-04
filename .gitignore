@@ -3,3 +3,9 @@
 code/obj/Debug/hit_s__run.csproj.AssemblyReference.cache
 code/hit_s__run.csproj
 *.cache
+code/obj/project.assets.json
+code/obj/project.nuget.cache
+*.targets
+*.props
+code/obj/hit_s__run.csproj.nuget.dgspec.json
+*.cache
