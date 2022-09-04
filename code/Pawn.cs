@@ -8,18 +8,18 @@ namespace Sandbox;
 
 partial class Pawn : AnimatedEntity {
 
-	private static Vector3 gravity = new Vector3( 0, 0, -200 );
-	
+	private static float jumpVelocity = 400.0f;
+	private static Vector3 jumpUpGravity = new Vector3( 0, 0, -15f );
+	private static Vector3 fallDownGravity = new Vector3( 0, 0, -12f );
+
 	private static float groundMaxSpeed = 200.0f;
 	private static float groundAcceleration = 30f;
 
-	private static float airMaxSpeed = 100.0f;
-	private static float airAcceleration = 5f;
+	private static float airMaxSpeed = 150.0f;
+	private static float airAcceleration = 20f;
 
 	private static float groundRotationSpeed = 10f;
 	private static float airRotationSpeed = 3.5f;
-
-	private static float jumpVelocity = 200.0f;
 
 	private static Vector3 hullSize = new Vector3( 16, 16, 34.0f );
 	private static Vector3 hullMins = new Vector3( -hullSize.x, -hullSize.y, 0 );
@@ -32,6 +32,7 @@ partial class Pawn : AnimatedEntity {
 	private Rotation goalRotation;
 
 	private bool isGrounded = false;
+	private bool justLanded = false;
 	private bool justJumped = false;
 	private float lastJumpTime = Time.Now;
 
@@ -71,7 +72,7 @@ partial class Pawn : AnimatedEntity {
 	private Vector3 GetRemappedMovementVector() {
 		float remappedForward = MathF.Abs( Input.Forward ).Remap( 0.0f, 1, 0, 1 ) * MathF.Sign( Input.Forward );
 		float remappedLeft = MathF.Abs( Input.Left ).Remap( 0.0f, 1, 0, 1 ) * MathF.Sign( Input.Left );
-		return new Vector3( remappedForward, remappedLeft, 0 );
+		return new Vector3( remappedForward, remappedLeft, 0 ).ClampLength( 0, 1 );
 	}
 
 	private void UpdateAnimations() {
@@ -89,9 +90,14 @@ partial class Pawn : AnimatedEntity {
 		// Don't count as grounded if we're moving upward
 		bool isMovingUp = Velocity.z > 0f;
 
-        //DebugOverlay.TraceResult( collisionInfo );
+		//DebugOverlay.TraceResult( collisionInfo );
 
+		bool previousIsGrounded = isGrounded;
 		isGrounded = moveHelper.IsFloor( collisionInfo ) && !isMovingUp;
+
+		// If we just landed
+		justLanded = !previousIsGrounded && isGrounded;
+
 	}
 
 	/// <summary>
@@ -99,16 +105,17 @@ partial class Pawn : AnimatedEntity {
 	/// </summary>
 	/// <returns>The player's new velocity velocity</returns>
 	private Vector3 HandleMovement( Vector3 currentVelocity, float maxSpeed, float maxAcceleration ) {
+
 		Vector3 movement = GetRemappedMovementVector();
 		float cameraYaw = Input.Rotation.Yaw();
 		Vector3 movementDirectionAdjustedforCamera = movement.Normal * Rotation.FromYaw( cameraYaw );
 
-		float currentSpeed = currentVelocity.Length;
-		float speedCap = Math.Max( maxSpeed * movement.Length, currentSpeed );
+		float speedCap = Math.Max( maxSpeed * movement.Length, currentVelocity.Length );
+		float speedCapNoZ = Math.Max( maxSpeed * movement.Length, currentVelocity.WithZ( 0 ).Length );
 
 		Vector3 newDesiredSpeed = currentVelocity + movementDirectionAdjustedforCamera * maxAcceleration * movement.Length;
 
-		if ( newDesiredSpeed.Length > speedCap ) {
+		if ( newDesiredSpeed.Length > speedCapNoZ ) {
 			newDesiredSpeed = newDesiredSpeed.Normal * speedCap;
 		}
 
@@ -129,16 +136,17 @@ partial class Pawn : AnimatedEntity {
         if ( movement.Length > 0f ) {
 			goalRotation = movementDirectionAdjustedforCamera.EulerAngles.ToRotation();
         }
-		
-		// Grounded behavior
-        if ( isGrounded ) {
 
 			// Debug overlay
-			Vector3 debugPos = Position + 3f;
+		Vector3 debugPos = Position + 3f;
+		// Velocity
+		//DebugOverlay.Line( debugPos, debugPos + Velocity, Color.Red, 0, false );
+
+		// Grounded behavior
+		if ( isGrounded ) {
+
 			// Max ground speed
-			DebugOverlay.Circle( Position + Vector3.Up * 2f, Rotation.FromAxis( Vector3.Right, 90 ), groundMaxSpeed, Color.Blue.WithAlpha( 0.25f ), 0, true );
-			// Velocity
-			DebugOverlay.Line( debugPos, debugPos + Velocity, Color.Red, 0, false );
+			//DebugOverlay.Circle( Position + Vector3.Up * 2f, Rotation.FromAxis( Vector3.Right, 90 ), groundMaxSpeed, Color.Blue.WithAlpha( 0.25f ), 0, true );
 
 			// Jumping
 			bool jumpTimeIsRight = ( Time.Now - lastJumpTime ) > minJumpDelay;
@@ -157,19 +165,30 @@ partial class Pawn : AnimatedEntity {
 			// Ground movement
 			} else {
 				moveHelper.Velocity = HandleMovement( moveHelper.Velocity, groundMaxSpeed, groundAcceleration );
+                if ( justLanded ) {
+					Log.Info( "Landed" );
+					moveHelper.Velocity = moveHelper.Velocity.ClampLength( groundMaxSpeed );
+                }
 			}
 
 		// Air behavior
 		} else {
 
+			// Max air speed
+			//DebugOverlay.Circle( Position + Vector3.Up * 2f, Rotation.FromAxis( Vector3.Right, 90 ), airMaxSpeed, Color.Blue.WithAlpha( 0.25f ), 0, true );
+
 			// Air movement
 			moveHelper.Velocity = HandleMovement( moveHelper.Velocity, airMaxSpeed, airAcceleration );
 
-			// Gravity
-			moveHelper.Velocity += gravity * Time.Delta;
+            // Gravity
+            if ( moveHelper.Velocity.z >= 0 ) {
+				moveHelper.Velocity += jumpUpGravity;
+            } else {
+				moveHelper.Velocity += fallDownGravity;
+			}
 		}
 
-		DebugOverlay.Box( Position + hullMins, Position + hullMaxs );
+		//DebugOverlay.Box( Position + hullMins, Position + hullMaxs );
 
 
         // Player rotation
