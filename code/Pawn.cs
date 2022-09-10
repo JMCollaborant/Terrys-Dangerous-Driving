@@ -9,6 +9,7 @@ namespace Sandbox;
 partial class Pawn : AnimatedEntity {
 
 	private static float jumpVelocity = 400.0f;
+	private static float doubleJumpVelocity = 250.0f;
 	private static Vector3 jumpUpGravity = new Vector3( 0, 0, -15f );
 	private static Vector3 fallDownGravity = new Vector3( 0, 0, -12f );
 
@@ -34,7 +35,11 @@ partial class Pawn : AnimatedEntity {
 	private bool isGrounded = false;
 	private bool justLanded = false;
 	private bool justJumped = false;
+	private bool isJumping = false;
 	private float lastJumpTime = Time.Now;
+
+	private bool hasDoubleJumped = false;
+	private float minDoubleJumpTime = 0.5f;
 
 	/// <summary>
 	/// Minimum time between jumps, in seconds
@@ -144,6 +149,8 @@ partial class Pawn : AnimatedEntity {
 
 		// Grounded behavior
 		if ( isGrounded ) {
+			hasDoubleJumped = false;
+			isJumping = false;
 
 			// Max ground speed
 			//DebugOverlay.Circle( Position + Vector3.Up * 2f, Rotation.FromAxis( Vector3.Right, 90 ), groundMaxSpeed, Color.Blue.WithAlpha( 0.25f ), 0, true );
@@ -154,11 +161,13 @@ partial class Pawn : AnimatedEntity {
 				moveHelper.Velocity = moveHelper.Velocity.WithZ( jumpVelocity );
 				justJumped = true;
 				lastJumpTime = Time.Now;
+				isJumping = true;
 			} else {
 				justJumped = false;
 			}
 
 			// Friction
+			// Only apply friction if we didn't just jump to avoid undesirable jumping behavior
 			if ( movement.Length <= 0 ) {
 				moveHelper.ApplyFriction( groundFriction, Time.Delta );
             
@@ -181,10 +190,17 @@ partial class Pawn : AnimatedEntity {
 			moveHelper.Velocity = HandleMovement( moveHelper.Velocity, airMaxSpeed, airAcceleration );
 
             // Gravity
-            if ( moveHelper.Velocity.z >= 0 ) {
+            if ( moveHelper.Velocity.z >= 0 && isJumping ) {
 				moveHelper.Velocity += jumpUpGravity;
             } else {
 				moveHelper.Velocity += fallDownGravity;
+			}
+
+            // Double jumping
+			bool doubleJumpTimeIsRight = ( Time.Now - minDoubleJumpTime ) > minDoubleJumpTime;
+			if ( Input.Pressed( InputButton.Jump ) && !hasDoubleJumped && doubleJumpTimeIsRight && isJumping ) {
+				hasDoubleJumped = true;
+				moveHelper.Velocity = moveHelper.Velocity.WithZ( doubleJumpVelocity );
 			}
 		}
 

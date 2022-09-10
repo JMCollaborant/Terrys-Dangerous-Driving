@@ -9,3 +9,8 @@ code/obj/project.nuget.cache
 *.props
 code/obj/hit_s__run.csproj.nuget.dgspec.json
 *.cache
+*.cache
+code/obj/project.assets.json
+*.props
+code/obj/hit_s__run.csproj.nuget.dgspec.json
+code/obj/hit_s__run.csproj.nuget.g.targets
