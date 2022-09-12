@@ -39,7 +39,7 @@ partial class Pawn : AnimatedEntity {
 	private float lastJumpTime = Time.Now;
 
 	private bool hasDoubleJumped = false;
-	private float minDoubleJumpTime = 0.5f;
+	private float minDoubleJumpTime = 0.8f;
 
 	/// <summary>
 	/// Minimum time between jumps, in seconds
@@ -86,6 +86,7 @@ partial class Pawn : AnimatedEntity {
 		this.SetAnimParameter( "Speed", MathF.Abs( movement.Length ) );
 		this.SetAnimParameter( "IsGrounded", isGrounded );
 		this.SetAnimParameter( "ButtonPushJump", justJumped );
+		this.SetAnimParameter( "ButtonPushDoubleJump", hasDoubleJumped );
 	}
 
 	private void UpdateIsGrounded() {
