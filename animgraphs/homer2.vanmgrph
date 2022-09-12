@@ -394,6 +394,12 @@
 												m_data = true
 											}
 										},
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnFinished"
+											m_bIsFinished = true
+										},
 									]
 									m_blendDuration = 0.2
 									m_destState = 
@@ -725,7 +731,7 @@
 										m_id = 1410415304
 									}
 									m_bReset = true
-									m_resetCycleOption = "Beginning"
+									m_resetCycleOption = "SameCycleAsSource"
 									m_flFixedCycleValue = 0.0
 									m_blendCurve = 
 									{
@@ -843,7 +849,7 @@
 							m_position = [ -128.0, -608.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
-							m_bIsPassthrough = false
+							m_bIsPassthrough = true
 							m_bIsRootMotionExclusive = false
 							m_bAlwaysEvaluate = false
 						},
@@ -1836,6 +1842,27 @@
 					m_sequenceName = "jump_buttslam_in_air"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1643022095
+				}
+				value = 
+				{
+					_class = "CSingleFrameAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -1008.0, -80.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1643022095
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_sequenceName = "jump_idle_in_air"
+					m_nFrameIndex = 2
+					m_tagSpans = [  ]
 				}
 			},
 			{
