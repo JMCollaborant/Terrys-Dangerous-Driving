@@ -14,3 +14,6 @@ code/obj/project.assets.json
 *.props
 code/obj/hit_s__run.csproj.nuget.dgspec.json
 code/obj/hit_s__run.csproj.nuget.g.targets
+code/obj/Debug/hit_s__run.assets.cache
+*.cache
+code/obj/Debug/hit_s__run.assets.cache

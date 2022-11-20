@@ -1,4 +1,6 @@
 {
   "cloud_packages": [],
-  "game_packages": []
+  "game_packages": [
+    "bigtimelongtime.hit_s__run"
+  ]
 }

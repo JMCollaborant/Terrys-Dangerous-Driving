@@ -4,10 +4,8 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Sandbox.PlayerController;
 
-//
-// You don't need to put things in a namespace, but it doesn't hurt.
-//
 namespace Sandbox;
 
 /// <summary>
@@ -27,8 +25,8 @@ public partial class MyGame : Sandbox.Game {
 		base.ClientJoined( client );
 
 		// Create a pawn for this client to play with
-		var pawn = new Pawn();
-		client.Pawn = pawn;
+		Player player = new Player();
+		client.Pawn = player;
 
 		// Get all of the spawnpoints
 		var spawnpoints = Entity.All.OfType<SpawnPoint>();
@@ -40,7 +38,7 @@ public partial class MyGame : Sandbox.Game {
 		if ( randomSpawnPoint != null ) {
 			var tx = randomSpawnPoint.Transform;
 			tx.Position = tx.Position + Vector3.Up * 50.0f; // raise it up
-			pawn.Transform = tx;
+			player.Transform = tx;
 		}
 	}
 }
