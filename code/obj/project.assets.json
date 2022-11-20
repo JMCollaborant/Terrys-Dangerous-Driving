@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Sandbox\\Hit&Run\\code\\hit_s__run.csproj",
-      "projectName": "hit_s__run",
-      "projectPath": "D:\\Sandbox\\Hit&Run\\code\\hit_s__run.csproj",
+      "projectUniqueName": "D:\\Sandbox\\Hit&Run\\code\\hit_sand_run.csproj",
+      "projectName": "hit_sand_run",
+      "projectPath": "D:\\Sandbox\\Hit&Run\\code\\hit_sand_run.csproj",
       "packagesPath": "C:\\Users\\JohnM\\.nuget\\packages\\",
       "outputPath": "D:\\Sandbox\\Hit&Run\\code\\obj\\",
       "projectStyle": "PackageReference",
