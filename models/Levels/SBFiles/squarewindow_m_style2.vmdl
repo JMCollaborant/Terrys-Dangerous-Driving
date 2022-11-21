@@ -1,0 +1,138 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "GameDataList"
+				children = 
+				[
+					{
+						_class = "GenericGameData"
+						game_class = "prop_data"
+						game_keys = 
+						{
+							bakelighting = true
+							spawn_motion_disabled = true
+							health = -1.0
+							min_impact_damage_speed = -1.0
+							impact_damage = -1.0
+							parent_bodygroup_name = ""
+							parent_bodygroup_value = 0
+						}
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "uvgrid.vmat"
+								to = "materials/dev/color_purple.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "SquareWindow_M"
+						children = 
+						[
+							{
+								_class = "RenderMeshFile"
+								filename = "models/Levels/Level 1/WindowFrames Export/SquareWindow_M_Style1.fbx"
+								import_translation = [ 0.0, 0.0, 0.0 ]
+								import_rotation = [ 0.0, 0.0, 0.0 ]
+								import_scale = 1.0
+								align_origin_x_type = "BoundsMax"
+								align_origin_y_type = "BoundsCenter"
+								align_origin_z_type = "BoundsMin"
+								parent_bone = ""
+								import_filter = 
+								{
+									exclude_by_default = false
+									exception_list = 
+									[
+										"Cube_047",
+									]
+								}
+							},
+							{
+								_class = "RenderMeshFile"
+								filename = "models/Levels/Level 1/WindowFrames Export/SquareWindow_M_Style2.fbx"
+								import_translation = [ 0.0, 0.0, 0.0 ]
+								import_rotation = [ 0.0, 0.0, 0.0 ]
+								import_scale = 1.0
+								align_origin_x_type = "BoundsMax"
+								align_origin_y_type = "BoundsCenter"
+								align_origin_z_type = "BoundsMin"
+								parent_bone = ""
+								import_filter = 
+								{
+									exclude_by_default = false
+									exception_list = [  ]
+								}
+							},
+							{
+								_class = "RenderMeshFile"
+								filename = "models/Levels/Level 1/WindowFrames Export/SquareWindow_M_Style4.fbx"
+								import_translation = [ 0.0, 0.0, 0.0 ]
+								import_rotation = [ 0.0, 0.0, 0.0 ]
+								import_scale = 1.0
+								align_origin_x_type = "BoundsMax"
+								align_origin_y_type = "BoundsCenter"
+								align_origin_z_type = "BoundsMin"
+								parent_bone = ""
+								import_filter = 
+								{
+									exclude_by_default = false
+									exception_list = 
+									[
+										"Cube_058",
+									]
+								}
+							},
+							{
+								_class = "RenderMeshFile"
+								filename = "models/Levels/Level 1/WindowFrames Export/SquareWindow_M_Style3.fbx"
+								import_translation = [ 0.0, 0.0, 0.0 ]
+								import_rotation = [ 0.0, 0.0, 0.0 ]
+								import_scale = 1.0
+								align_origin_x_type = "BoundsMax"
+								align_origin_y_type = "BoundsCenter"
+								align_origin_z_type = "BoundsMin"
+								parent_bone = ""
+								import_filter = 
+								{
+									exclude_by_default = false
+									exception_list = 
+									[
+										"Cube_055",
+									]
+								}
+							},
+						]
+					},
+				]
+			},
+		]
+		model_archetype = "static_prop_model"
+		primary_associated_entity = "prop_static"
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}
