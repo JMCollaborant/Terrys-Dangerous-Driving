@@ -6,7 +6,7 @@
   "Tags": "",
   "Schema": 1,
   "HasAssets": true,
-  "AssetsPath": "",
+  "AssetsPath": "D:\\Sandbox\\Hit\u0026Run",
   "ResourcePaths": [],
   "HasCode": true,
   "CodePath": "/code/",
@@ -22,6 +22,11 @@
     "RankType": "None",
     "PerMapRanking": false,
     "LeaderboardType": "None",
-    "ProjectTemplate": null
+    "ProjectTemplate": null,
+    "Compiler": {
+      "RootNamespace": "Sandbox",
+      "DefineConstants": "SANDBOX;ADDON;DEBUG",
+      "NoWarn": "1701;1702;1591;"
+    }
   }
 }
