@@ -54,7 +54,7 @@
 						[
 							{
 								_class = "RenderMeshFile"
-								filename = "models/levels/level 1/windowframes export/squarewindow_m_style1.fbx"
+								filename = "models/levels/windowframes export/squarewindow_m_style1.fbx"
 								import_translation = [ 0.0, 0.0, 0.0 ]
 								import_rotation = [ 0.0, 0.0, 0.0 ]
 								import_scale = 1.0

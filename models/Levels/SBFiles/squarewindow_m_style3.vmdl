@@ -54,45 +54,7 @@
 						[
 							{
 								_class = "RenderMeshFile"
-								filename = "models/Levels/Level 1/WindowFrames Export/SquareWindow_M_Style1.fbx"
-								import_translation = [ 0.0, 0.0, 0.0 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "BoundsMax"
-								align_origin_y_type = "BoundsCenter"
-								align_origin_z_type = "BoundsMin"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = false
-									exception_list = 
-									[
-										"Cube_047",
-									]
-								}
-							},
-							{
-								_class = "RenderMeshFile"
-								filename = "models/Levels/Level 1/WindowFrames Export/SquareWindow_M_Style2.fbx"
-								import_translation = [ 0.0, 0.0, 0.0 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "BoundsMax"
-								align_origin_y_type = "BoundsCenter"
-								align_origin_z_type = "BoundsMin"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = false
-									exception_list = 
-									[
-										"Cube_050",
-									]
-								}
-							},
-							{
-								_class = "RenderMeshFile"
-								filename = "models/Levels/Level 1/WindowFrames Export/SquareWindow_M_Style3.fbx"
+								filename = "models/levels/windowframes export/squarewindow_m_style3.fbx"
 								import_translation = [ 0.0, 0.0, 0.0 ]
 								import_rotation = [ 0.0, 0.0, 0.0 ]
 								import_scale = 1.0
@@ -104,25 +66,6 @@
 								{
 									exclude_by_default = false
 									exception_list = [  ]
-								}
-							},
-							{
-								_class = "RenderMeshFile"
-								filename = "models/Levels/Level 1/WindowFrames Export/SquareWindow_M_Style4.fbx"
-								import_translation = [ 0.0, 0.0, 0.0 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "BoundsMax"
-								align_origin_y_type = "BoundsCenter"
-								align_origin_z_type = "BoundsMin"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = false
-									exception_list = 
-									[
-										"Cube_058",
-									]
 								}
 							},
 						]

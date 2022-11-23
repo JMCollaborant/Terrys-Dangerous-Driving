@@ -54,64 +54,7 @@
 						[
 							{
 								_class = "RenderMeshFile"
-								filename = "models/Levels/Level 1/WindowFrames Export/TallWindow_L_Style1.fbx"
-								import_translation = [ 0.0, 0.0, 0.0 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "BoundsMax"
-								align_origin_y_type = "BoundsCenter"
-								align_origin_z_type = "BoundsMin"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = false
-									exception_list = 
-									[
-										"Cube_065",
-									]
-								}
-							},
-							{
-								_class = "RenderMeshFile"
-								filename = "models/Levels/Level 1/WindowFrames Export/TallWindow_L_Style2.fbx"
-								import_translation = [ 0.0, 0.0, 0.0 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "BoundsMax"
-								align_origin_y_type = "BoundsCenter"
-								align_origin_z_type = "BoundsMin"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = false
-									exception_list = 
-									[
-										"Cube_066",
-									]
-								}
-							},
-							{
-								_class = "RenderMeshFile"
-								filename = "models/Levels/Level 1/WindowFrames Export/TallWindow_L_Style3.fbx"
-								import_translation = [ 0.0, 0.0, 0.0 ]
-								import_rotation = [ 0.0, 0.0, 0.0 ]
-								import_scale = 1.0
-								align_origin_x_type = "BoundsMax"
-								align_origin_y_type = "BoundsCenter"
-								align_origin_z_type = "BoundsMin"
-								parent_bone = ""
-								import_filter = 
-								{
-									exclude_by_default = false
-									exception_list = 
-									[
-										"Cube_067",
-									]
-								}
-							},
-							{
-								_class = "RenderMeshFile"
-								filename = "models/Levels/Level 1/WindowFrames Export/TallWindow_L_Style4.fbx"
+								filename = "models/levels/windowframes export/tallwindow_l_style4.fbx"
 								import_translation = [ 0.0, 0.0, 0.0 ]
 								import_rotation = [ 0.0, 0.0, 0.0 ]
 								import_scale = 1.0
