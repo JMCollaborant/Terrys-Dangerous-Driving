@@ -1,6 +1,6 @@
 using Sandbox;
 using Sandbox.UI;
-using Platformer.Gamemodes;
+
 
 namespace Platformer.UI;
 
@@ -25,9 +25,8 @@ public partial class PlayerCard : Panel
 		HealthBar.MaxBlocks = pawn.MaxHealth.CeilToInt();
 		HealthBar.CurrentBlocks = pawn.Health.CeilToInt();
 
-		var wantCoinsAndLives = Tag.Current.IsValid() || Brawl.Current.IsValid();
-		CoinsPanel.SetClass( "tag", wantCoinsAndLives );
-		LivesPanel.SetClass( "tag", wantCoinsAndLives );
+		//CoinsPanel.SetClass( "tag", wantCoinsAndLives );
+		//LivesPanel.SetClass( "tag", wantCoinsAndLives );
 
 		Lives = $"{pawn.NumberLife}";
 		Coins = $"{pawn.Coin}";

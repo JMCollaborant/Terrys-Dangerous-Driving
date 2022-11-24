@@ -123,7 +123,7 @@ namespace Platformer.Movement
 			}
 
 			ctrl.SetTag( "skidding" );
-			ctrl.Move();
+			ctrl.StepMove();
 		}
 
 		private bool StillSliding()

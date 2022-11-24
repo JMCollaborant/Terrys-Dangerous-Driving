@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Platformer.Movement;
 using Platformer.Utility;
-using Platformer.Gamemodes;
+
 
 namespace Platformer;
 
@@ -31,8 +31,6 @@ public partial class PlatformerPawn : Sandbox.Player {
     public string CurrentArea { get; set; }
     [Net]
     public int Coin { get; set; }
-    [Net]
-    public IList<Checkpoint> Checkpoints { get; set; }
 
     public int AreaPriority = 0;
     public bool IgnoreFallDamage = false;
@@ -74,8 +72,33 @@ public partial class PlatformerPawn : Sandbox.Player {
         Health = 4;
 
         Tags.Add( "player" );
-        GotoBestCheckpoint();
-        Platformer.Current.Gamemode.DoPlayerRespawn( this );
+        GoToBestSpawnPoint();
+    }
+
+    public void GoToBestSpawnPoint() {
+
+        SpawnPoint closestSpawnPoint = Entity.All.OfType<SpawnPoint>()
+            .OrderBy( spawnPoint => spawnPoint.Position.DistanceSquared( this.Position ) )
+            .First();
+
+        Log.Info( "Going to the closest spawn point" );
+        Log.Info( closestSpawnPoint );
+
+        if ( closestSpawnPoint != null ) {
+
+            Log.Info( "Spawn point: " + closestSpawnPoint.Position );
+
+            Log.Info( "Player before: " + this.Position );
+
+            this.Position = closestSpawnPoint.Position;
+            this.Position += Vector3.Up * 25f;
+
+            this.Rotation = Rotation.FromYaw( closestSpawnPoint.Rotation.Yaw() );
+
+            Log.Info( "Player after: " + this.Position );
+
+
+        }
     }
 
     public void ResetCollectibles<T>() where T : BaseCollectible {
@@ -90,7 +113,7 @@ public partial class PlatformerPawn : Sandbox.Player {
 
     public override void TakeDamage( DamageInfo info ) {
         if ( TimeUntilVulnerable > 0 ) return;
-        if ( info.Flags == DamageFlags.Sonic && !BaseGamemode.Instance.EnablePvP ) return;
+        if ( info.Flags == DamageFlags.Sonic ) return;
 
         base.TakeDamage( info );
 
@@ -124,8 +147,6 @@ public partial class PlatformerPawn : Sandbox.Player {
             child.EnableDrawing = false;
         }
 
-        BaseGamemode.Instance.DoPlayerKilled( this );
-
         BecomeRagdollOnClient( Velocity, lastDamage.Flags, lastDamage.Position, lastDamage.Force, lastDamage.BoneIndex );
     }
 
@@ -151,8 +172,6 @@ public partial class PlatformerPawn : Sandbox.Player {
     public float MaxHealth { get; set; } = 4;
 
     public override void Simulate( Client cl ) {
-        if ( Platformer.GameState == GameStates.GameEnd )
-            return;
 
         if ( TalkingToNPC )
             return;
@@ -312,7 +331,6 @@ public partial class PlatformerPawn : Sandbox.Player {
         if ( Local.Pawn == this ) return;
         if ( Local.Pawn == null ) return;
         if ( !Local.Pawn.IsValid() ) return;
-        if ( Platformer.Mode != Platformer.GameModes.Competitive ) return;
 
         var dist = Local.Pawn.Position.Distance( Position );
         var a = 1f - dist.LerpInverse( MaxRenderDistance, MaxRenderDistance * .1f );

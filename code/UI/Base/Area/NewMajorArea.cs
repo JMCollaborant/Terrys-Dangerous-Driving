@@ -1,46 +1,39 @@
-﻿using Platformer.Gamemodes;
+﻿
 using Sandbox;
 using Sandbox.UI;
 
 namespace Platformer.UI;
 
-public partial class NewMajorArea : Panel
-{
+public partial class NewMajorArea : Panel {
 
-	public static NewMajorArea Instance;
-	public float timesince = 0;
-	public Label newlandmark;
+    public static NewMajorArea Instance;
+    public float timesince = 0;
+    public Label newlandmark;
 
-	public NewMajorArea()
-	{
-		StyleSheet.Load( "/ui/base/area/NewMajorArea.scss" );
+    public NewMajorArea() {
+        StyleSheet.Load( "/ui/base/area/NewMajorArea.scss" );
 
-		newlandmark = AddChild<Label>( "newlandmark" );
+        newlandmark = AddChild<Label>( "newlandmark" );
 
-		Instance = this;
-	}
+        Instance = this;
+    }
 
-	public override void Tick()
-	{
-		base.Tick();
+    public override void Tick() {
+        base.Tick();
 
-		if ( Time.Now - timesince < 5 && Platformer.GameState == GameStates.Live )
-		{
-			AddClass( "visible" );
-		}
-		else
-		{
-			RemoveClass( "visible" );
-		}
-	}
+        if ( Time.Now - timesince < 5 ) {
+            AddClass( "visible" );
+        } else {
+            RemoveClass( "visible" );
+        }
+    }
 
-	public static void ShowLandmark( string title )
-	{
-		if ( Instance == null ) 
-			return;
+    public static void ShowLandmark( string title ) {
+        if ( Instance == null )
+            return;
 
-		Instance.newlandmark.SetText( title );
-		Instance.timesince = Time.Now;
+        Instance.newlandmark.SetText( title );
+        Instance.timesince = Time.Now;
 
-	}
+    }
 }

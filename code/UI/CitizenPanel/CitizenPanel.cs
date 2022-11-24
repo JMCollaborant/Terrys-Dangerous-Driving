@@ -49,6 +49,11 @@ public class CitizenPanelScene : ScenePanel
 	{
 		var player = Local.Client.Pawn as PlatformerPawn;
 
+		if ( player is null ) {
+			Log.Error( "Clothing failed to set up in SetupClothing()" );
+			return;
+		}
+
 		Clothing = new ClothingContainer();
 		Clothing.Deserialize( player.ClothingAsString );
 

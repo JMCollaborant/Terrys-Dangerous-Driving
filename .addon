@@ -6,8 +6,10 @@
   "Tags": "",
   "Schema": 1,
   "HasAssets": true,
-  "AssetsPath": "D:\\Sandbox\\Hit\u0026Run",
-  "ResourcePaths": [],
+  "AssetsPath": "",
+  "ResourcePaths": [
+    "D:\\Sandbox\\Hit\u0026Run"
+  ],
   "HasCode": true,
   "CodePath": "/code/",
   "RootNamespace": null,

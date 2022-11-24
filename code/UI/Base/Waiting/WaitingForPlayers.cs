@@ -1,4 +1,4 @@
-﻿using Platformer.Gamemodes;
+﻿
 using Sandbox;
 using Sandbox.UI;
 
@@ -24,7 +24,7 @@ public partial class WaitingForPlayers : Panel
 	{
 		base.Tick();
 
-		if ( Time.Now - timesince < 5 && Tag.Current != null )
+		if ( Time.Now - timesince < 5 )
 		{
 			AddClass( "visible" );
 		}

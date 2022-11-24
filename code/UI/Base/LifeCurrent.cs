@@ -1,5 +1,5 @@
 ﻿
-using Platformer.Gamemodes;
+
 using Sandbox;
 using Sandbox.UI;
 using Sandbox.UI.Construct;
@@ -27,7 +27,6 @@ namespace Platformer.UI
 
 			var life = pl.NumberLife;
 
-			Number.SetClass( "active", Tag.Current == null );
 			Number.SetClass( "lifelow", life <= 1 );
 			Number.Text = $"{life}";
 

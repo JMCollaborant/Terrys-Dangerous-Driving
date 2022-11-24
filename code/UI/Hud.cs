@@ -1,6 +1,6 @@
 
 using Sandbox.UI;
-using Platformer.Gamemodes;
+
 using Sandbox;
 
 namespace Platformer.UI;
@@ -16,8 +16,8 @@ public class Hud : RootPanel
 
 	public override void Tick()
 	{
-		SetClass( "game-end", Platformer.GameState == GameStates.GameEnd );
-		SetClass( "game-warmup", Platformer.GameState == GameStates.Warmup );
+		//SetClass( "game-end", Platformer.GameState == GameStates.GameEnd );
+		//SetClass( "game-warmup", Platformer.GameState == GameStates.Warmup );
 	}
 
 }
