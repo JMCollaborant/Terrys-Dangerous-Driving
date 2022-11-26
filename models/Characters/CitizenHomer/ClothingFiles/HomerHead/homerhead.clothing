@@ -4,16 +4,16 @@
 	{
 		Title = "Homer Head"
 		Subtitle = "EW"
-		Category = "Facial"
+		Category = "Hat"
 		SubCategory = "Homer"
 		Parent = null
-		Model = resource:"models/characters/citizenhomer/clothingfiles/homerhead/homerhead1.vmdl"
+		Model = resource:"models/characters/citizenhomer/clothingfiles/homerhead/homerhead.vmdl"
 		SkinMaterial = null
 		EyesMaterial = null
 		MaterialGroup = ""
 		SlotsUnder = 0
 		SlotsOver = 0
-		HideBody = "Head"
+		HideBody = 0
 		Icon = 
 		{
 			Path = "/clothing_icons/homerhead.png"
