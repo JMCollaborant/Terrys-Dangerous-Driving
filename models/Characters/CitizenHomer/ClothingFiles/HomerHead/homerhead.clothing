@@ -12,7 +12,7 @@
 		EyesMaterial = null
 		MaterialGroup = ""
 		SlotsUnder = 0
-		SlotsOver = "Face"
+		SlotsOver = 0
 		HideBody = "Head"
 		Icon = 
 		{
