@@ -1,9 +1,9 @@
 {
-  "Title": "Hit S\u0026 Run Rebased",
+  "Title": "Terry\u0027s Dangerous Driving",
   "Type": "game",
   "Org": "bigtimelongtime",
-  "Ident": "hit_sand_run",
-  "Tags": "",
+  "Ident": "terrys_dd",
+  "Tags": "simpsons hit and run gta open world driving vehicles",
   "Schema": 1,
   "HasAssets": true,
   "AssetsPath": "",
@@ -29,6 +29,11 @@
       "RootNamespace": "Sandbox",
       "DefineConstants": "SANDBOX;ADDON;DEBUG",
       "NoWarn": "1701;1702;1591;"
+    },
+    "DefaultLeaderboards": [],
+    "ControlModes": {
+      "Keyboard": true,
+      "Gamepad": true
     }
   }
 }

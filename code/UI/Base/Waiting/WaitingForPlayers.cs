@@ -2,45 +2,38 @@
 using Sandbox;
 using Sandbox.UI;
 
-namespace Platformer.UI;
+namespace TDD.ui;
 
-public partial class WaitingForPlayers : Panel
-{
+public partial class WaitingForPlayers : Panel {
 
-	public static WaitingForPlayers Instance;
-	public float timesince = 0;
-	public Label newwaitingforplayers;
+    public static WaitingForPlayers Instance;
+    public float timesince = 0;
+    public Label newwaitingforplayers;
 
-	public WaitingForPlayers()
-	{
-		StyleSheet.Load( "/ui/base/Waiting/WaitingForPlayers.scss" );
+    public WaitingForPlayers() {
+        StyleSheet.Load( "/ui/base/Waiting/WaitingForPlayers.scss" );
 
-		newwaitingforplayers = AddChild<Label>( "waitingforplayers" );
+        newwaitingforplayers = AddChild<Label>( "waitingforplayers" );
 
-		Instance = this;
-	}
+        Instance = this;
+    }
 
-	public override void Tick()
-	{
-		base.Tick();
+    public override void Tick() {
+        base.Tick();
 
-		if ( Time.Now - timesince < 5 )
-		{
-			AddClass( "visible" );
-		}
-		else
-		{
-			RemoveClass( "visible" );
-		}
-	}
+        if ( Time.Now - timesince < 5 ) {
+            AddClass( "visible" );
+        } else {
+            RemoveClass( "visible" );
+        }
+    }
 
-	public static void ShowWaitingForPlayers( string title )
-	{
-		if ( Instance == null ) 
-			return;
+    public static void ShowWaitingForPlayers( string title ) {
+        if ( Instance == null )
+            return;
 
-		Instance.newwaitingforplayers.SetText( title );
-		Instance.timesince = Time.Now;
+        Instance.newwaitingforplayers.SetText( title );
+        Instance.timesince = Time.Now;
 
-	}
+    }
 }

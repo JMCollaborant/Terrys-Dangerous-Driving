@@ -1,13 +1,9 @@
-﻿
-using Platformer;
-
-using Sandbox;
+﻿using Sandbox;
 using Sandbox.UI;
 using System.Collections.Generic;
 using System.Linq;
 
-
-namespace Platformer;
+namespace TDD;
 
 [UseTemplate]
 public class Scoreboard : Panel {

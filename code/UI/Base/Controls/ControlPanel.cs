@@ -1,51 +1,45 @@
-﻿
-using Platformer.Movement;
-using Sandbox;
+﻿using Sandbox;
 using Sandbox.UI;
+using TDD.movement;
 
-namespace Platformer;
+namespace TDD;
 
 [UseTemplate]
-internal class ControlPanel : Panel
-{
+internal class ControlPanel : Panel {
 
-	private bool built;
-	private bool alwaysOpen => false;
+    private bool built;
+    private bool alwaysOpen => false;
 
-	public override void Tick()
-	{
-		base.Tick();
+    public override void Tick() {
+        base.Tick();
 
-		SetClass( "open", alwaysOpen || ( Input.Down( InputButton.Score ) ) );
+        SetClass( "open", alwaysOpen || ( Input.Down( InputButton.Score ) ) );
 
-		if ( built ) return;
+        if ( built ) return;
 
-		Rebuild();
-	}
+        Rebuild();
+    }
 
-	private void Rebuild()
-	{
-		DeleteChildren();
+    private void Rebuild() {
+        DeleteChildren();
 
-		if ( Local.Pawn is not PlatformerPawn p ) return;
-		if ( p.Controller is not PlatformerController ctrl ) return;
+        if ( Local.Pawn is not Player p ) return;
+        if ( p.Controller is not PlayerController ctrl ) return;
 
-		built = true;
+        built = true;
 
-		foreach ( var mech in ctrl.Mechanics )
-		{
-			if ( string.IsNullOrEmpty( mech.HudName ) ) 
-				continue;
+        foreach ( var mech in ctrl.Mechanics ) {
+            if ( string.IsNullOrEmpty( mech.HudName ) )
+                continue;
 
-			AddChild( new ControlEntry()
-			{
-				Name = mech.HudName,
-				Description = mech.HudDescription
-			} );
-		}
-	}
+            AddChild( new ControlEntry() {
+                Name = mech.HudName,
+                Description = mech.HudDescription
+            } );
+        }
+    }
 
-	public override void OnHotloaded() => Rebuild();
-	protected override void PostTemplateApplied() => Rebuild();
+    public override void OnHotloaded() => Rebuild();
+    protected override void PostTemplateApplied() => Rebuild();
 
 }

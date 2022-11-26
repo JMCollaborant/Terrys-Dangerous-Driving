@@ -1,10 +1,9 @@
 ﻿
 using Sandbox.UI;
 
-namespace Platformer.UI;
+namespace TDD.UI;
 
 [UseTemplate]
-public class DefaultHud : Panel
-{
+public class DefaultHud : Panel {
 
 }

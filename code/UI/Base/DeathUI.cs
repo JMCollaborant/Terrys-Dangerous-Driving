@@ -4,48 +4,40 @@ using Sandbox.UI;
 using Sandbox.UI.Construct;
 using System;
 
-namespace Platformer.UI;
+namespace TDD.ui;
 
-public class DeathUI : Panel
-{
-	public Image DeadImage;
+public class DeathUI : Panel {
+    public Image DeadImage;
 
-	public DeathUI()
-	{
-		DeadImage = Add.Image( "ui/hud/death/respawn.png", "deathimage" );
-	}
+    public DeathUI() {
+        DeadImage = Add.Image( "ui/hud/death/respawn.png", "deathimage" );
+    }
 
-	public override void Tick()
-	{
-		var player = Local.Pawn;
-		if ( player == null ) return;
+    public override void Tick() {
+        var player = Local.Pawn;
+        if ( player == null ) return;
 
-		if ( Local.Pawn is not PlatformerPawn pl ) return;
+        if ( Local.Pawn is not Player pl ) return;
 
-		if ( pl.LifeState == LifeState.Dead )
-		{
-			Died();
-		}
-		else
-		{
-			Alive();
-		}
-	}
+        if ( pl.LifeState == LifeState.Dead ) {
+            Died();
+        } else {
+            Alive();
+        }
+    }
 
-	public async void Died()
-	{
-		DeadImage.SetClass( "limbo", true );
+    public async void Died() {
+        DeadImage.SetClass( "limbo", true );
 
-		await Task.DelayRealtimeSeconds( 1.5f );
+        await Task.DelayRealtimeSeconds( 1.5f );
 
-		DeadImage.SetClass( "alive", false );
-		DeadImage.SetClass( "died",true);
+        DeadImage.SetClass( "alive", false );
+        DeadImage.SetClass( "died", true );
 
-	}
-	public void Alive()
-	{
-		DeadImage.SetClass( "limbo", false );
-		DeadImage.SetClass( "died", false );
-		DeadImage.SetClass( "alive", true );
-	}
+    }
+    public void Alive() {
+        DeadImage.SetClass( "limbo", false );
+        DeadImage.SetClass( "died", false );
+        DeadImage.SetClass( "alive", true );
+    }
 }

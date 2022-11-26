@@ -6,73 +6,64 @@ using System.Linq;
 using System.Threading.Tasks;
 
 [UseTemplate]
-class MapVotePanel : Panel
-{
-	// @text
-	public string Icon { get; set; }
-	public string TitleText { get; set; } = "Map Vote";
-	public string SubtitleText { get; set; } = "Choose your next map";
-	public string TimeText { get; set; } = "00:33";
+class MapVotePanel : Panel {
+    // @text
+    public string Icon { get; set; }
+    public string TitleText { get; set; } = "Map Vote";
+    public string SubtitleText { get; set; } = "Choose your next map";
+    public string TimeText { get; set; } = "00:33";
 
-	public Panel Body { get; set; }
+    public Panel Body { get; set; }
 
-	public List<MapIcon> MapIcons = new();
+    public List<MapIcon> MapIcons = new();
 
-	public MapVotePanel()
-	{
-		Icon = "schedule";
-		_ = PopulateMaps();
-	}
+    public MapVotePanel() {
+        Icon = "schedule";
+        _ = PopulateMaps();
+    }
 
-	public async Task PopulateMaps()
-	{
-		var query = new Package.Query
-		{
-			Type = Package.Type.Map,
-			Order = Package.Order.User,
-			Take = 16,
-		};
+    public async Task PopulateMaps() {
+        var query = new Package.Query {
+            Type = Package.Type.Map,
+            Order = Package.Order.User,
+            Take = 16,
+        };
 
-		query.Tags.Add( "game:facepunch.platformer" ); // maybe this should be a "for this game" type of thing instead
+        query.Tags.Add( "game:facepunch.platformer" ); // maybe this should be a "for this game" type of thing instead
 
-		var packages = await query.RunAsync( default );
+        var packages = await query.RunAsync( default );
 
-		foreach ( var package in packages )
-		{
-			AddMap( package.FullIdent );
-		}
-	}
+        foreach ( var package in packages ) {
+            AddMap( package.FullIdent );
+        }
+    }
 
-	private MapIcon AddMap( string fullIdent )
-	{
-		var icon = MapIcons.FirstOrDefault( x => x.Ident == fullIdent );
+    private MapIcon AddMap( string fullIdent ) {
+        var icon = MapIcons.FirstOrDefault( x => x.Ident == fullIdent );
 
-		if ( icon != null )
-			return icon;
+        if ( icon != null )
+            return icon;
 
-		icon = new MapIcon( fullIdent );
-		icon.AddEventListener( "onmousedown", () => MapVoteEntity.SetVote( fullIdent ) );
-		Body.AddChild( icon );
+        icon = new MapIcon( fullIdent );
+        icon.AddEventListener( "onmousedown", () => MapVoteEntity.SetVote( fullIdent ) );
+        Body.AddChild( icon );
 
-		MapIcons.Add( icon );
-		return icon;
-	}
+        MapIcons.Add( icon );
+        return icon;
+    }
 
-	public override void Tick()
-	{
-		base.Tick();
-	}
+    public override void Tick() {
+        base.Tick();
+    }
 
-	internal void UpdateFromVotes( IDictionary<Client, string> votes )
-	{
-		foreach ( var icon in MapIcons )
-			icon.VoteCount = "0";
+    internal void UpdateFromVotes( IDictionary<Client, string> votes ) {
+        foreach ( var icon in MapIcons )
+            icon.VoteCount = "0";
 
-		foreach ( var group in votes.GroupBy( x => x.Value ).OrderByDescending( x => x.Count() ) )
-		{
-			var icon = AddMap( group.Key );
-			icon.VoteCount = group.Count().ToString( "n0" );
-		}
-	}
+        foreach ( var group in votes.GroupBy( x => x.Value ).OrderByDescending( x => x.Count() ) ) {
+            var icon = AddMap( group.Key );
+            icon.VoteCount = group.Count().ToString( "n0" );
+        }
+    }
 }
 

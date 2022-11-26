@@ -2,7 +2,7 @@
 using Sandbox;
 using Sandbox.UI;
 
-namespace Platformer.UI;
+namespace TDD.ui;
 
 public partial class NewMajorArea : Panel {
 

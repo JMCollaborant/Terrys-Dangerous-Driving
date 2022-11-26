@@ -4,46 +4,41 @@ using Sandbox.UI;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Platformer.UI
-{
-	[UseTemplate]
-	public class HealthCurrent : Panel
-	{
-		// @text
-		public string Icon { get; set; }
-		// @text
-		public string Message { get; set; }
+namespace TDD.ui {
+    [UseTemplate]
+    public class HealthCurrent : Panel {
+        // @text
+        public string Icon { get; set; }
+        // @text
+        public string Message { get; set; }
 
-		private const int MaxHealth = 4;
+        private const int MaxHealth = 4;
 
-		List<Panel> Blocks { get; set; } = new();
+        List<Panel> Blocks { get; set; } = new();
 
-		public HealthCurrent()
-		{
-			AddClass( "HealthCurrent" );
+        public HealthCurrent() {
+            AddClass( "HealthCurrent" );
 
-			Icon = "add_circle";
+            Icon = "add_circle";
 
-			for ( int i = 0; i < MaxHealth; i++ )
-				Blocks.Add( Add.Panel( $"health-block health-block-{i}" ) );
-		}
+            for ( int i = 0; i < MaxHealth; i++ )
+                Blocks.Add( Add.Panel( $"health-block health-block-{i}" ) );
+        }
 
-		public override void Tick()
-		{
-			base.Tick();
+        public override void Tick() {
+            base.Tick();
 
-			if ( Local.Pawn is not Player pl ) return;
+            if ( Local.Pawn is not Player pl ) return;
 
-			for ( int i = 0; i < Blocks.Count; i++ )
-			{
-				var block = Blocks[i];
-				if ( block == null ) continue;
+            for ( int i = 0; i < Blocks.Count; i++ ) {
+                var block = Blocks[ i ];
+                if ( block == null ) continue;
 
-				block.SetClass( "visible", pl.Health >= i + 1 );
+                block.SetClass( "visible", pl.Health >= i + 1 );
 
-				Message = $"{pl.Health}/{MaxHealth}";
-			}
-		}
+                Message = $"{pl.Health}/{MaxHealth}";
+            }
+        }
 
-	}
+    }
 }

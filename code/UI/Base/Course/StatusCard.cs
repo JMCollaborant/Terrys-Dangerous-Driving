@@ -1,35 +1,31 @@
 using Sandbox.UI;
 
-namespace Platformer.UI;
+namespace TDD.ui;
 
 [UseTemplate]
-public partial class StatusCard : Panel
-{
-	// @text
-	public string Icon { get; set; }
-	// @text 
-	public string Header { get; set; }
-	// @text
-	public string Message { get; set; }
-	
-	public bool ReverseColor { get; set; }
+public partial class StatusCard : Panel {
+    // @text
+    public string Icon { get; set; }
+    // @text 
+    public string Header { get; set; }
+    // @text
+    public string Message { get; set; }
 
-	public StatusCard()
-	{
-		AddClass( "status-card" );
+    public bool ReverseColor { get; set; }
 
-		Icon = "schedule";
-		Header = "WARM UP";
-		Message = "0:16";
+    public StatusCard() {
+        AddClass( "status-card" );
 
-		BindClass( "reverse-color", () => ReverseColor );
-	}
+        Icon = "schedule";
+        Header = "WARM UP";
+        Message = "0:16";
 
-	public override void SetProperty( string name, string value )
-	{
-		if ( name == "reverse" )
-		{
-			ReverseColor = true;
-		}
-	}
+        BindClass( "reverse-color", () => ReverseColor );
+    }
+
+    public override void SetProperty( string name, string value ) {
+        if ( name == "reverse" ) {
+            ReverseColor = true;
+        }
+    }
 }

@@ -3,7 +3,7 @@ using Sandbox.UI;
 
 using Sandbox;
 
-namespace Platformer.UI;
+namespace TDD.UI;
 
 [UseTemplate]
 public class Hud : RootPanel

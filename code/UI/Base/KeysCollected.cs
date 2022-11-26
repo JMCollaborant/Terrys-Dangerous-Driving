@@ -4,8 +4,9 @@ using Sandbox;
 using Sandbox.UI;
 using System.Collections.Generic;
 using System.Linq;
+using TDD.UI;
 
-namespace Platformer.UI {
+namespace TDD.ui {
     public partial class KeysCollected : Panel {
 
         private List<KeyPanel> KeyPanels = new();

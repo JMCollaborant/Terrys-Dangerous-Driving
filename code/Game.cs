@@ -2,12 +2,12 @@
 using Sandbox;
 using System;
 using System.Linq;
-using Platformer.UI;
+using TDD.ui;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sandbox.UI;
 
-namespace Platformer;
+namespace TDD;
 
 public partial class Platformer : Sandbox.Game {
 
@@ -18,6 +18,11 @@ public partial class Platformer : Sandbox.Game {
 
     public Platformer() {
         Current = this;
+
+        BasePlayerController.Debug = true;
+        if ( BasePlayerController.Debug ) {
+            Log.Info( "-----------DEBUG ACTIVE-----------" );
+        }
     }
 
     /// <summary>
@@ -41,7 +46,7 @@ public partial class Platformer : Sandbox.Game {
         Log.Info( $"\"{client.Name}\" has joined the game" );
         ChatBox.AddInformation( To.Everyone, $"{client.Name} has joined", $"avatar:{client.PlayerId}" );
 
-        PlatformerPawn platformerPawn = new PlatformerPawn( client );
+        Player platformerPawn = new Player( client );
 
         client.Pawn = platformerPawn;
 

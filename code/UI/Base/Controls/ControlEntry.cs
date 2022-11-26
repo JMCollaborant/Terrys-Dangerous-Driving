@@ -1,14 +1,10 @@
-﻿
-using Platformer.Movement;
-using Sandbox.UI;
+﻿using Sandbox.UI;
 
-namespace Platformer;
+namespace TDD;
 
 [UseTemplate]
-internal class ControlEntry : Panel
-{
-
-	public string Name { get; set; }
-	public string Description { get; set; }
+internal class ControlEntry : Panel {
+    public string Name { get; set; }
+    public string Description { get; set; }
 
 }

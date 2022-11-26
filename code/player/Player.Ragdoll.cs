@@ -1,9 +1,9 @@
 
 using Sandbox;
 
-namespace Platformer
+namespace TDD
 {
-	partial class PlatformerPawn
+	partial class Player
 	{
 		[ClientRpc]
 		private void BecomeRagdollOnClient( Vector3 velocity, DamageFlags damageFlags, Vector3 forcePos, Vector3 force, int bone )

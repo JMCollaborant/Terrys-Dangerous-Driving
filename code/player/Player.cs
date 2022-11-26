@@ -1,15 +1,14 @@
 ﻿
 using Sandbox;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using Platformer.Movement;
-using Platformer.Utility;
+using TDD.movement;
+using TDD.utility;
+using TDD.player.camera.platformer_holdovers;
 
+namespace TDD;
 
-namespace Platformer;
-
-public partial class PlatformerPawn : Sandbox.Player {
+public partial class Player : Sandbox.Player {
     [Net]
     public AnimatedEntity Citizen { get; set; }
 
@@ -43,19 +42,19 @@ public partial class PlatformerPawn : Sandbox.Player {
 
     [Net] public string ClothingAsString { get; set; }
 
-    public PlatformerPawn( Client cl ) : this() {
+    public Player( Client cl ) : this() {
         Clothing = new ClothingContainer();
         Clothing.LoadFromClient( cl );
         ClothingAsString = cl.GetClientData( "avatar", "" );
     }
 
-    public PlatformerPawn() { }
+    public Player() { }
 
     public override void Respawn() {
         SetModel( "models/citizen/citizen.vmdl" );
 
         Citizen = this;
-        Controller ??= new PlatformerController();
+        Controller ??= new PlayerController();
         Animator = new PlatformerLookAnimator();
         CameraMode = new PlatformerOrbitCamera();
 
@@ -183,7 +182,7 @@ public partial class PlatformerPawn : Sandbox.Player {
         TickPlayerThrow();
         TickPlayerUse();
 
-        if ( Controller is PlatformerController controller ) {
+        if ( Controller is PlayerController controller ) {
             GliderEnergy = (float) Math.Round( controller.Energy );
         }
 
@@ -286,14 +285,14 @@ public partial class PlatformerPawn : Sandbox.Player {
     }
 
     public void ApplyForce( Vector3 force ) {
-        if ( Controller is PlatformerController controller ) {
+        if ( Controller is PlayerController controller ) {
             controller.Impulse += force;
         }
     }
 
     public void PlayerPickedUpGlider() {
         if ( PlayerHasGlider ) {
-            if ( Controller is PlatformerController controller ) {
+            if ( Controller is PlayerController controller ) {
                 controller.EnableGliderControl();
                 PlayerHasGlider = true;
             }
@@ -332,7 +331,7 @@ public partial class PlatformerPawn : Sandbox.Player {
         if ( Local.Pawn == null ) return;
         if ( !Local.Pawn.IsValid() ) return;
 
-        var dist = Local.Pawn.Position.Distance( Position );
+        var dist = Local.Pawn.Position.Distance( (Vector3) base.Position );
         var a = 1f - dist.LerpInverse( MaxRenderDistance, MaxRenderDistance * .1f );
         a = Math.Max( a, .15f );
         a = Easing.EaseOut( a );
@@ -343,11 +342,11 @@ public partial class PlatformerPawn : Sandbox.Player {
     [Event.Tick]
     public void PlayerHolding() {
         if ( HeldBody != null ) {
-            if ( Controller is PlatformerController controller ) {
+            if ( Controller is PlayerController controller ) {
                 controller.IsHolding = true;
             }
         } else {
-            if ( Controller is PlatformerController controller ) {
+            if ( Controller is PlayerController controller ) {
                 controller.IsHolding = false;
             }
         }

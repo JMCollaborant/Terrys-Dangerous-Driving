@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sandbox.Utility {
+﻿namespace TDD.utility {
     internal static class TransformExtensions {
 
         public static Vector3 RelativeVector( this Transform transform, float forward, float right, float up ) {

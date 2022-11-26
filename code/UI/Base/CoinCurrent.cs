@@ -3,7 +3,7 @@ using Sandbox;
 using Sandbox.UI;
 using Sandbox.UI.Construct;
 
-namespace Platformer.UI {
+namespace TDD.ui {
     public class CoinCurrent : Panel {
 
         //public Image Image;
@@ -25,7 +25,7 @@ namespace Platformer.UI {
             var player = Local.Pawn;
             if ( player == null ) return;
 
-            if ( Local.Pawn is not PlatformerPawn pl ) return;
+            if ( Local.Pawn is not Player pl ) return;
             var Coin = pl.Coin;
 
             SetClass( "active", true );

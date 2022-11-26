@@ -1,33 +1,29 @@
 ﻿
 using Sandbox;
 using Sandbox.UI;
-using System.Linq;
+using TDD.UI;
 
-namespace Platformer.UI
-{
-	public class AvatarPanel : Panel
-	{
-		static Color HighColor = new Color( 0.45f, 0.72f, 1f );
-		
-		static Color LowColor = new Color( 0.83f, 0.18f, 0.19f );
+namespace TDD.ui {
+    public class AvatarPanel : Panel {
+        static Color HighColor = new Color( 0.45f, 0.72f, 1f );
 
-		public CitizenPanel Avatar { get; set; }
-			
-		public AvatarPanel()
-		{			
-			Avatar = new CitizenPanel( Local.Client );
-			AddChild( Avatar );
-			
-		}
+        static Color LowColor = new Color( 0.83f, 0.18f, 0.19f );
 
-		public override void Tick()
-		{
-			base.Tick();
+        public CitizenPanel Avatar { get; set; }
 
-			if ( Local.Pawn is not Player pl ) return;
+        public AvatarPanel() {
+            Avatar = new CitizenPanel( Local.Client );
+            AddChild( Avatar );
 
-			//Avatar.Style.BackgroundColor = pl.Health >= 1 ? HighColor : LowColor;
-		}
+        }
 
-	}
+        public override void Tick() {
+            base.Tick();
+
+            if ( Local.Pawn is not Player pl ) return;
+
+            //Avatar.Style.BackgroundColor = pl.Health >= 1 ? HighColor : LowColor;
+        }
+
+    }
 }
