@@ -51,7 +51,7 @@ public partial class Player : Sandbox.Player {
     public Player() { }
 
     public override void Respawn() {
-        SetModel( "models/citizen/citizen.vmdl" );
+        SetModel( "models/characters/citizenhomer/customhomer.vmdl" );
 
         Citizen = this;
         Controller ??= new PlayerController();
