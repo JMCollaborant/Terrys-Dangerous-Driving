@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Sandbox\\Hit&Run\\code\\hit_s__run.csproj",
-      "projectName": "hit_s__run",
-      "projectPath": "D:\\Sandbox\\Hit&Run\\code\\hit_s__run.csproj",
+      "projectUniqueName": "D:\\Sandbox\\Hit&Run\\code\\terrys_dd.csproj",
+      "projectName": "terrys_dd",
+      "projectPath": "D:\\Sandbox\\Hit&Run\\code\\terrys_dd.csproj",
       "packagesPath": "C:\\Users\\JohnM\\.nuget\\packages\\",
       "outputPath": "D:\\Sandbox\\Hit&Run\\code\\obj\\",
       "projectStyle": "PackageReference",
@@ -74,7 +74,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -83,7 +84,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,42 @@
+﻿
+@import "../../_vars.scss";
+
+ControlPanel {
+    color: $fontcolor;
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    align-items: flex-end;
+    z-index: 101;
+    flex-direction: column;
+    font-family: Nunito-Bold;
+    opacity: 0;
+    transition: all .15s ease-in;
+    align-items: start;
+    color: #b7b7b7;
+    text-shadow: 0px 1px 0px rgba( black, 0.3 );
+    font-size: 16px;
+    border-left: 2px solid rgba(234, 46, 80, 1);
+
+    &.open {
+        opacity: 1;
+    }
+
+    ControlEntry {
+        padding: 8px;
+        margin-bottom: 2px;
+        border-radius: 20px;
+
+        .name {
+            margin-right: 4px;
+            padding-right: 4px;
+            font-family: Nunito-Black;
+            font-size: 18px;
+            width: 150px;
+        }
+
+        .description {
+            font-size: 14px;
+        }
+    }
+}
