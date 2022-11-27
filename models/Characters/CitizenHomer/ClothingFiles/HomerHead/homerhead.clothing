@@ -4,7 +4,7 @@
 	{
 		Title = "Homer Head"
 		Subtitle = "EW"
-		Category = "Hat"
+		Category = "Facial"
 		SubCategory = "Homer"
 		Parent = null
 		Model = resource:"models/characters/citizenhomer/clothingfiles/homerhead/homerhead.vmdl"
