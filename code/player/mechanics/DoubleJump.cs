@@ -46,7 +46,7 @@ namespace TDD.movement {
             if ( !InputActions.Jump.Pressed() ) return;
             if ( TimeUntilCanDoubleJump > 0 ) return;
             if ( ctrl.GetMechanic<Glide>()?.Gliding ?? false ) return;
-            if ( ctrl.GetMechanic<CrouchJump>().IsDuckjumping == true ) return;
+            if ( ctrl.GetMechanic<CrouchJump>()?.IsDuckjumping ?? false == true ) return;
             if ( DoubleJumpsRemaining <= 0 ) return;
 
             ctrl.Velocity = ctrl.Velocity.WithZ( DoubleJumpStrength );

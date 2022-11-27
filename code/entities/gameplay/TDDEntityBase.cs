@@ -3,21 +3,19 @@
 namespace TDD.entities.gameplay {
     internal class TDDEntityBase : ModelEntity {
 
-        public TDDEntityBase() : base() {
+        public TDDEntityBase() : base() {}
 
-        }
-
-
-        public override void Simulate( Client cl ) {
-            base.Simulate( cl );
-
+        [Event.Frame]
+        private void OnEveryFrame() {
             if ( BasePlayerController.Debug ) {
-                DebugOverlay.Text( this.Name, this.Position + Vector3.Up * this.PhysicsBody.GetBounds().Size.z );
-                DebugOverlay.Box( this, Color.Blue );
+                DrawDebugInfo();
             }
-
         }
 
+        public virtual void DrawDebugInfo() {
+            DebugOverlay.Text( this.ClassName, this.Position + Vector3.Up * this.PhysicsBody.GetBounds().Size.z );
+            DebugOverlay.Box( this, Color.Blue );
+        }
 
     }
 }

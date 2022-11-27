@@ -40,20 +40,20 @@ namespace TDD.movement {
             //mechanics.Add( new VaultMove( this ) );
             //mechanics.Add( new SideBoost( this ) );
             mechanics.Add( new Unstucker( this ) );
-            mechanics.Add( new Crouching( this ) );
-            mechanics.Add( new Slide( this ) );
+            //mechanics.Add( new Crouching( this ) );
+            //mechanics.Add( new Slide( this ) );
             //mechanics.Add( new LedgeJump( this ) );
-            mechanics.Add( new CrouchJump( this ) );
+            //mechanics.Add( new CrouchJump( this ) );
             mechanics.Add( new DoubleJump( this ) );
-            mechanics.Add( new Glide( this ) );
-            mechanics.Add( new FallDamage( this ) );
-            mechanics.Add( new LongJump( this ) );
-            mechanics.Add( new RailSlide( this ) );
-            mechanics.Add( new AirDash( this ) );
+            //mechanics.Add( new Glide( this ) );
+            //mechanics.Add( new FallDamage( this ) );
+            //mechanics.Add( new LongJump( this ) );
+            //mechanics.Add( new RailSlide( this ) );
+            //mechanics.Add( new AirDash( this ) );
             mechanics.Add( new GroundPound( this ) );
             mechanics.Add( new GetPushed( this ) );
 
-            mechanics.Add( new LedgeGrab( this ) );
+            //mechanics.Add( new LedgeGrab( this ) );
             //mechanics.Add( new WallJump( this ) ); Bit too buggy atm
 
             mechanics.Add( new GroundKick( this ) );
