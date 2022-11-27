@@ -64,7 +64,7 @@ public partial class Player : Sandbox.Player {
         EnableShadowInFirstPerson = true;
         CurrentArea ??= Global.MapName;
 
-        Clothing.DressEntity( this );
+        //Clothing.DressEntity( this );
 
         base.Respawn();
 
