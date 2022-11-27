@@ -29,7 +29,7 @@
 										cpu_access = false
 									},
 								]
-								filename = "models/characters/citizenhomer/citizenhomer_lod0_1.fbx"
+								filename = "models/characters/citizenhomer/blenderfiles/scary terry_lod0.fbx"
 								import_translation = [ 0.0, 0.0, 0.0 ]
 								import_rotation = [ 0.0, 0.0, 0.0 ]
 								import_scale = 1.0
@@ -183,7 +183,7 @@
 										cpu_access = false
 									},
 								]
-								filename = "models/characters/citizenhomer/citizenhomer_lod0_1.fbx"
+								filename = "models/characters/citizenhomer/blenderfiles/scary terry_lod0.fbx"
 								import_translation = [ 0.0, 0.0, 0.0 ]
 								import_rotation = [ 0.0, 0.0, 0.0 ]
 								import_scale = 1.0
@@ -490,7 +490,7 @@
 										cpu_access = false
 									},
 								]
-								filename = "models/characters/citizenhomer/citizenhomer_lod0_1.fbx"
+								filename = "models/characters/citizenhomer/blenderfiles/scary terry_lod0.fbx"
 								import_translation = [ 0.0, 0.0, 0.0 ]
 								import_rotation = [ 0.0, 0.0, 0.0 ]
 								import_scale = 1.0
@@ -646,7 +646,7 @@
 								cpu_access = false
 							},
 						]
-						filename = "models/characters/citizenhomer/citizenhomer_lod0_1.fbx"
+						filename = "models/characters/citizenhomer/citizenhomer_mergedhead.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 1.0
